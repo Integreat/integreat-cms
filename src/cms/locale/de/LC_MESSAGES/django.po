@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-22 13:03+0000\n"
+"POT-Creation-Date: 2021-02-24 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -471,27 +471,27 @@ msgid "value"
 msgstr "Wert"
 
 #: models/config/configuration.py:19 models/events/event_translation.py:75
-#: models/feedback/feedback.py:39 models/languages/language.py:40
+#: models/feedback/feedback.py:39 models/languages/language.py:59
 #: models/languages/language_tree_node.py:48 models/offers/offer.py:34
 #: models/offers/offer_template.py:57 models/pages/abstract_base_page.py:19
 #: models/pages/abstract_base_page_translation.py:46
 #: models/pois/poi_translation.py:71
 #: models/push_notifications/push_notification.py:41
 #: models/push_notifications/push_notification_translation.py:35
-#: models/regions/region.py:101 models/users/organization.py:27
+#: models/regions/region.py:147 models/users/organization.py:27
 #: models/users/user_mfa.py:37
 msgid "creation date"
 msgstr "Erstellungsdatum"
 
 #: models/config/configuration.py:23 models/events/event_translation.py:79
-#: models/feedback/feedback.py:43 models/languages/language.py:44
+#: models/feedback/feedback.py:43 models/languages/language.py:63
 #: models/languages/language_tree_node.py:52 models/offers/offer.py:37
 #: models/offers/offer_template.py:61 models/pages/abstract_base_page.py:22
 #: models/pages/abstract_base_page_translation.py:50
 #: models/pois/poi_translation.py:75
 #: models/push_notifications/push_notification.py:45
 #: models/push_notifications/push_notification_translation.py:39
-#: models/regions/region.py:105 models/users/organization.py:31
+#: models/regions/region.py:151 models/users/organization.py:31
 msgid "modification date"
 msgstr "Änderungsdatum"
 
@@ -512,7 +512,7 @@ msgstr "Einstellungen"
 #: models/languages/language_tree_node.py:37 models/offers/offer.py:24
 #: models/pages/imprint_page.py:27 models/pages/page.py:40
 #: models/pois/poi.py:18 models/push_notifications/push_notification.py:17
-#: models/regions/region.py:285
+#: models/regions/region.py:331
 msgid "region"
 msgstr "Region"
 
@@ -542,7 +542,7 @@ msgid "recurrence rule"
 msgstr "Wiederholungs-Regel"
 
 #: models/events/event.py:49 models/pages/imprint_page.py:21
-#: models/pages/page.py:34 models/pois/poi.py:36 models/regions/region.py:145
+#: models/pages/page.py:34 models/pois/poi.py:36 models/regions/region.py:191
 msgid "thumbnail icon"
 msgstr "Vorschaubild"
 
@@ -559,7 +559,7 @@ msgid "events"
 msgstr "Veranstaltungen"
 
 #: models/events/event_translation.py:29 models/pages/page_translation.py:27
-#: models/pois/poi_translation.py:24 models/regions/region.py:34
+#: models/pois/poi_translation.py:24 models/regions/region.py:80
 msgid "URL parameter"
 msgstr "URL-Parameter"
 
@@ -582,7 +582,7 @@ msgstr ""
 
 #: models/events/event_translation.py:41
 #: models/pages/abstract_base_page_translation.py:27
-#: models/pois/poi_translation.py:42 models/regions/region.py:45
+#: models/pois/poi_translation.py:42 models/regions/region.py:91
 msgid "status"
 msgstr "Status"
 
@@ -593,12 +593,12 @@ msgstr "Status"
 msgid "title"
 msgstr "Titel"
 
-#: models/events/event_translation.py:44 models/media/document.py:11
+#: models/events/event_translation.py:44 models/media/document.py:43
 msgid "description"
 msgstr "Beschreibung"
 
 #: models/events/event_translation.py:49 models/feedback/feedback.py:17
-#: models/languages/language.py:77 models/languages/language_tree_node.py:23
+#: models/languages/language.py:96 models/languages/language_tree_node.py:23
 #: models/pages/imprint_page_translation.py:32
 #: models/pages/page_translation.py:44 models/pois/poi_translation.py:52
 #: models/push_notifications/push_notification_translation.py:25
@@ -805,40 +805,40 @@ msgstr "Suchbegriff"
 msgid "search result feedback"
 msgstr "Suchergebnis-Feedback"
 
-#: models/languages/language.py:22
+#: models/languages/language.py:41
 msgid "language tag"
 msgstr "Sprach-Tag"
 
-#: models/languages/language.py:23 models/regions/region.py:36
+#: models/languages/language.py:42 models/regions/region.py:82
 #: models/users/organization.py:17
 msgid "Unique string identifier without spaces and special characters."
 msgstr "Eindeutiger Bezeichner ohne Leerzeichen und Sonderzeichen."
 
-#: models/languages/language.py:26
+#: models/languages/language.py:45
 msgid "native name"
 msgstr "nativer Name"
 
-#: models/languages/language.py:29
+#: models/languages/language.py:48
 msgid "name in English"
 msgstr "Name auf Englisch"
 
-#: models/languages/language.py:36
+#: models/languages/language.py:55
 msgid "text direction"
 msgstr "Schreibrichtung"
 
-#: models/languages/language.py:49
+#: models/languages/language.py:68
 msgid "\"Table of contents\" in this language"
 msgstr "\"Inhaltsverzeichnis\" in dieser Sprache"
 
-#: models/languages/language.py:51
+#: models/languages/language.py:70
 msgid "The native name for \"Table of contents\" in this language."
 msgstr "Der native Name für \"Inhaltsverzeichnis\" in dieser Sprache."
 
-#: models/languages/language.py:52
+#: models/languages/language.py:71
 msgid "This is used in exported PDFs."
 msgstr "Dies wird in exportierten PDFs verwendet."
 
-#: models/languages/language.py:79
+#: models/languages/language.py:98
 msgid "languages"
 msgstr "Sprachen"
 
@@ -866,23 +866,23 @@ msgstr "Sprach-Knoten"
 msgid "language tree nodes"
 msgstr "Sprach-Knoten"
 
-#: models/media/document.py:15 models/media/document.py:52
+#: models/media/document.py:47 models/media/document.py:80
 msgid "document"
 msgstr "Dokument"
 
-#: models/media/document.py:16
+#: models/media/document.py:48
 msgid "The actual document file"
 msgstr "Die eigentliche Dokumentendatei"
 
-#: models/media/document.py:20
+#: models/media/document.py:52
 msgid "uploaded date"
 msgstr "Upload-Datum"
 
-#: models/media/document.py:21
+#: models/media/document.py:53
 msgid "The date and time when the document was uploaded"
 msgstr "Das Datum und die Uhrzeit, zu der das Dokument hochgeladen wurde"
 
-#: models/media/document.py:54
+#: models/media/document.py:82
 msgid "documents"
 msgstr "Dokumente"
 
@@ -896,7 +896,7 @@ msgstr "Angebote"
 
 #: models/offers/offer_template.py:17
 #: models/push_notifications/push_notification_channel.py:10
-#: models/regions/region.py:18 models/users/organization.py:11
+#: models/regions/region.py:64 models/users/organization.py:11
 #: models/users/user_mfa.py:17
 msgid "name"
 msgstr "Name"
@@ -905,7 +905,7 @@ msgstr "Name"
 msgid "slug"
 msgstr "URL-Parameter"
 
-#: models/offers/offer_template.py:26 models/regions/region.py:37
+#: models/offers/offer_template.py:26 models/regions/region.py:83
 msgid "Leave blank to generate unique parameter from name"
 msgstr ""
 "Dieses Feld freilassen, um einen eindeutigen Alias aus dem Namen zu "
@@ -932,7 +932,7 @@ msgstr "POST-Parameter"
 msgid "Additional POST data for retrieving the URL."
 msgstr "Zusätzliche POST-Daten zum Abrufen der URL."
 
-#: models/offers/offer_template.py:41 models/regions/region.py:62
+#: models/offers/offer_template.py:41 models/regions/region.py:108
 msgid "Specify as JSON."
 msgstr "Als JSON angeben."
 
@@ -1072,7 +1072,7 @@ msgstr ""
 msgid "street and house number"
 msgstr "Straße und Hausnummer"
 
-#: models/pois/poi.py:23 models/regions/region.py:93
+#: models/pois/poi.py:23 models/regions/region.py:139
 msgid "postal code"
 msgstr "Postleitzahl"
 
@@ -1084,7 +1084,7 @@ msgstr "Stadt"
 msgid "country"
 msgstr "Land"
 
-#: models/pois/poi.py:27 models/regions/region.py:85
+#: models/pois/poi.py:27 models/regions/region.py:131
 msgid "latitude"
 msgstr "Geographische Breite"
 
@@ -1092,7 +1092,7 @@ msgstr "Geographische Breite"
 msgid "The latitude coordinate"
 msgstr "Die Breitengrad-Koordinate"
 
-#: models/pois/poi.py:30 models/regions/region.py:90
+#: models/pois/poi.py:30 models/regions/region.py:136
 msgid "longitude"
 msgstr "Geographische Länge"
 
@@ -1171,7 +1171,7 @@ msgid "push notification channel"
 msgstr "Push-Benachrichtigungskanal"
 
 #: models/push_notifications/push_notification_channel.py:25
-#: models/regions/region.py:79
+#: models/regions/region.py:125
 msgid "push notification channels"
 msgstr "Push-Benachrichtigungskanäle"
 
@@ -1183,81 +1183,81 @@ msgstr "Push-Benachrichtigungs-Übersetzung"
 msgid "push notification translations"
 msgstr "Push-Benachrichtigungs-Übersetzungen"
 
-#: models/regions/region.py:24
+#: models/regions/region.py:70
 msgid "community identification number"
 msgstr "Amtlicher Gemeindeschlüssel"
 
-#: models/regions/region.py:26
+#: models/regions/region.py:72
 msgid ""
 "Number sequence for identifying politically independent administrative units"
 msgstr ""
 "Ziffernfolge zur Identifizierung politisch selbständiger Verwaltungseinheiten"
 
-#: models/regions/region.py:54
+#: models/regions/region.py:100
 msgid "administrative division"
 msgstr "Verwaltungseinheit"
 
-#: models/regions/region.py:58
+#: models/regions/region.py:104
 msgid "aliases"
 msgstr "Aliasnamen"
 
-#: models/regions/region.py:60
+#: models/regions/region.py:106
 msgid "E.g. smaller municipalities in that area."
 msgstr "Z.B. kleinere Gemeinden in der Region."
 
-#: models/regions/region.py:61
+#: models/regions/region.py:107
 msgid "If empty, the CMS will try to fill this automatically."
 msgstr "Wird, wenn leer, automatisch vom CMS befüllt."
 
-#: models/regions/region.py:68
+#: models/regions/region.py:114
 msgid "activate events"
 msgstr "Veranstaltungen aktivieren"
 
-#: models/regions/region.py:69
+#: models/regions/region.py:115
 msgid "Whether or not events are enabled in the region"
 msgstr "Ob Ereignisse in der Region aktiviert sind oder nicht"
 
-#: models/regions/region.py:73
+#: models/regions/region.py:119
 msgid "activate push notifications"
 msgstr "Push-Benachrichtigungen aktivieren"
 
-#: models/regions/region.py:74
+#: models/regions/region.py:120
 msgid "Whether or not push notifications are enabled in the region"
 msgstr "Ob Push-Benachrichtigungen in der Region aktiviert sind oder nicht"
 
-#: models/regions/region.py:80
+#: models/regions/region.py:126
 msgid "Enter multiple channels separated by commas."
 msgstr "Mehrere Kanäle mit Kommata getrennt eingeben."
 
-#: models/regions/region.py:86
+#: models/regions/region.py:132
 msgid "The latitude coordinate of an approximate center of the region"
 msgstr "Die Breitengrad-Koordinate eines ungefähren Mittelpunkts der Region"
 
-#: models/regions/region.py:91
+#: models/regions/region.py:137
 msgid "The longitude coordinate of an approximate center of the region"
 msgstr "Die Längengrad-Koordinate eines ungefähren Mittelpunkts der Region"
 
-#: models/regions/region.py:96
+#: models/regions/region.py:142
 msgid "email address of the administrator"
 msgstr "E-Mail-Adresse des Administrators"
 
-#: models/regions/region.py:110
+#: models/regions/region.py:156
 msgid "activate statistics"
 msgstr "Statistiken aktivieren"
 
-#: models/regions/region.py:111
+#: models/regions/region.py:157
 msgid "Whether or not statistics are enabled for the region"
 msgstr "Ob Statistiken für die Region aktiviert sind oder nicht"
 
-#: models/regions/region.py:114
+#: models/regions/region.py:160
 msgid "Matomo URL"
 msgstr "Matomo-URL"
 
-#: models/regions/region.py:120
+#: models/regions/region.py:166
 msgid "Matomo authentication token"
 msgstr "Matomo Authentifizierungs-Token"
 
-#: models/regions/region.py:122
+#: models/regions/region.py:168
 msgid ""
 "The secret Matomo access token of the region is used to authenticate in API "
 "requests"
@@ -1265,21 +1265,21 @@ msgstr ""
 "Das geheime Matomo-Zugangs-Token der Region wird zur Authentifizierung bei "
 "API-Anfragen verwendet"
 
-#: models/regions/region.py:127
+#: models/regions/region.py:173
 msgid "activate SSL verification for Matomo"
 msgstr "SSL-Verifikation für Matomo aktivieren"
 
-#: models/regions/region.py:129
+#: models/regions/region.py:175
 msgid "Don't allow invalid SSL-certificates when interacting with Matomo API"
 msgstr ""
 "Erlaube keine ungültigen SSL-Zertifikate bei der Interaktion mit der Matomo "
 "API"
 
-#: models/regions/region.py:135
+#: models/regions/region.py:181
 msgid "activate page-specific permissions"
 msgstr "Seiten-spezifische-Berechtigungen aktivieren"
 
-#: models/regions/region.py:137
+#: models/regions/region.py:183
 msgid ""
 "This allows individual users to be granted the right to edit or publish a "
 "specific page."
@@ -1287,18 +1287,18 @@ msgstr ""
 "Damit kann einzelnen Benutzern das Recht zum Bearbeiten oder Veröffentlichen "
 "einer bestimmten Seite eingeräumt werden."
 
-#: models/regions/region.py:150
+#: models/regions/region.py:196
 msgid "activate author chat"
 msgstr "Autoren-Chat aktivieren"
 
-#: models/regions/region.py:152
+#: models/regions/region.py:198
 msgid ""
 "This gives all users of this region access to the cross-regional author chat."
 msgstr ""
 "Dies gewährt allen Benutzern dieser Region Zugang zum überregionalen Autoren-"
 "Chat."
 
-#: models/regions/region.py:287 models/users/user_profile.py:30
+#: models/regions/region.py:333 models/users/user_profile.py:30
 msgid "regions"
 msgstr "Regionen"
 
@@ -1383,9 +1383,9 @@ msgstr "Benutzerprofile"
 #: templates/events/event_list.html:40
 #: templates/events/event_list_archived.html:29
 #: templates/language_tree/language_tree.html:16
-#: templates/media/media_list.html:8 templates/offers/offer_list.html:15
-#: templates/pages/page_tree.html:33 templates/pages/page_tree_archived.html:17
-#: templates/pois/poi_list.html:27 templates/pois/poi_list_archived.html:17
+#: templates/offers/offer_list.html:15 templates/pages/page_tree.html:33
+#: templates/pages/page_tree_archived.html:17 templates/pois/poi_list.html:27
+#: templates/pois/poi_list_archived.html:17
 #: templates/push_notifications/push_notification_list.html:9
 #: templates/regions/region_list.html:14 templates/users/admin/list.html:14
 #: templates/users/region/list.html:9
@@ -1792,7 +1792,6 @@ msgstr "Bewertung"
 #: templates/dashboard/admin_dashboard.html:29
 #: templates/feedback/admin_feedback_list.html:15
 #: templates/feedback/region_feedback_list.html:15
-#: templates/media/media_list.html:23
 msgid "Date"
 msgstr "Datum"
 
@@ -2490,21 +2489,13 @@ msgstr "Absenden"
 msgid "Return"
 msgstr "Zurück"
 
-#: templates/media/media_list.html:12
+#: templates/media/media_list.html:14
+msgid "Mediathek"
+msgstr ""
+
+#: templates/media/media_list.html:18
 msgid "Upload File"
 msgstr "Datei hochladen"
-
-#: templates/media/media_list.html:22
-#: templates/offer_templates/offer_template_list.html:24
-#: templates/offers/offer_list.html:31
-#: templates/organizations/organization_list.html:24
-#: templates/regions/region_list.html:29 templates/roles/list.html:24
-msgid "Name"
-msgstr "Name"
-
-#: templates/media/media_list.html:24
-msgid "Operations"
-msgstr "Optionen"
 
 #: templates/offer_templates/offer_template_form.html:13
 #, python-format
@@ -2540,6 +2531,13 @@ msgstr "Angebots-Vorlagen"
 #: templates/offer_templates/offer_template_list.html:14
 msgid "Create offer template"
 msgstr "Neue Angebots-Vorlage erstellen"
+
+#: templates/offer_templates/offer_template_list.html:24
+#: templates/offers/offer_list.html:31
+#: templates/organizations/organization_list.html:24
+#: templates/regions/region_list.html:29 templates/roles/list.html:24
+msgid "Name"
+msgstr "Name"
 
 #: templates/offer_templates/offer_template_list.html:25
 #: templates/organizations/organization_list.html:25
@@ -4166,6 +4164,9 @@ msgstr ""
 "Ein Benutzer muss entweder Mitarbeiter/Super-Administrator sein, oder "
 "mindestens einer Region zugewiesen sein."
 
+#~ msgid "Time"
+#~ msgstr "Uhrzeit"
+
 #~ msgid "PDF Export"
 #~ msgstr "PDF Export"
 
@@ -4289,9 +4290,6 @@ msgstr ""
 
 #~ msgid "Unique per region and language"
 #~ msgstr "Eindeutig pro Region und Sprache"
-
-#~ msgid "Time"
-#~ msgstr "Uhrzeit"
 
 #~ msgid "interval"
 #~ msgstr "Intervall"

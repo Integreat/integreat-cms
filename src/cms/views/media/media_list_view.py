@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 
 from ...decorators import region_permission_required
 from ...models import Document
+from ...models.media.directory import Directory
 
 
 @method_decorator(login_required, name="dispatch")
@@ -36,7 +37,10 @@ class MediaListView(TemplateView):
         :rtype: ~django.template.response.TemplateResponse
         """
         documents = Document.objects.all()
+        directories = Directory.objects.all()
 
         return render(
-            request, self.template_name, {**self.base_context, "documents": documents}
+            request,
+            self.template_name,
+            {**self.base_context, "documents": documents, "directory": directories},
         )

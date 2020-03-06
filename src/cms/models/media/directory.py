@@ -26,7 +26,11 @@ class Directory(models.Model):
         Region, related_name="media_directories", on_delete=models.CASCADE
     )
     parent = models.ForeignKey(
-        "self", related_name="subdirectories", on_delete=models.PROTECT
+        "self",
+        related_name="subdirectories",
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True,
     )
 
     def __str__(self):

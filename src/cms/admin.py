@@ -27,6 +27,9 @@ from .models import Feedback
 from .models import PageFeedback
 from .models import ImprintPage
 from .models import ImprintPageTranslation
+from .models.media.document import Document
+from .models.media.directory import Directory
+from .models.media.file import File
 
 admin.site.register(ChatMessage)
 admin.site.register(Configuration)
@@ -50,3 +53,6 @@ admin.site.register(Feedback)
 admin.site.register(PageFeedback)
 admin.site.register(ImprintPage)
 admin.site.register(ImprintPageTranslation)
+admin.site.register(Document)
+admin.site.register(Directory)
+admin.site.register(File)
