@@ -18,19 +18,14 @@
                 <a href="{% url 'create_directory' region_slug=region.slug directory_id=directory_id%}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     {% trans 'Create directory' %}
                 </a>
-                <a href="{% url 'edit_file' region_slug=region.slug directory_id=directory_id document_id=0 %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    {% trans 'Upload File' %}
+                <a href="{% url 'edit_file' document_id='0' region_slug=region.slug directory_id=directory_id %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+	                {% trans 'Upload File' %}
                 </a>
             </div>
         {% endif %}
     </div>
-    <div class="flex flex-wrap p-2 bg-white rounded w-full">
-        <form class="table-search relative w-1/4 justify-end">
-            <i data-feather="search" class="absolute"></i>
-            <input type="search" placeholder="{% trans 'Search' %}" class="h-full py-2 pl-10 pr-4 rounded shadow">
-        </form>
-    </div>
 </div>
+
 <ol class="list-reset flex text-grey-dark m-3">
     <li><a href="{% url 'media' region_slug=region.slug directory_id=0 %}" class="text-blue font-bold">{% trans 'Home' %}</a></li>
     {% for dir in breadcrumb %}
@@ -38,14 +33,14 @@
     <li><a class="text-blue font-bold" href="{% url 'media' region_slug=region.slug directory_id=dir.id %}">{{dir.name}}</a></li>
     {% endfor %}
 </ol>
-<a class="grid grid-cols-9 gap-4 p-2">
+
+<div class="grid grid-cols-5 gap-4 p-2">
 
     {% for folder in directory %}
         <a class="flex-col justify-between items-center flex" href="{% url 'media' region_slug=region.slug directory_id=folder.id %}">
             <img src="{% static 'svg/folder.svg' %}" class="fill-current w-1/2 flex-1" />
-            <span class=""> {{ folder.name }} </span>
+            <span> {{ folder.name }} </span>
         </a>
-
     {% endfor %}
 
     {% for obj in documents %}

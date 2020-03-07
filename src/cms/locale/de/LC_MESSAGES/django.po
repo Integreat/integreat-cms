@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 10:11+0000\n"
+"POT-Creation-Date: 2021-02-24 10:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -1383,9 +1383,9 @@ msgstr "Benutzerprofile"
 #: templates/events/event_list.html:40
 #: templates/events/event_list_archived.html:29
 #: templates/language_tree/language_tree.html:16
-#: templates/media/media_list.html:30 templates/offers/offer_list.html:15
-#: templates/pages/page_tree.html:33 templates/pages/page_tree_archived.html:17
-#: templates/pois/poi_list.html:27 templates/pois/poi_list_archived.html:17
+#: templates/offers/offer_list.html:15 templates/pages/page_tree.html:33
+#: templates/pages/page_tree_archived.html:17 templates/pois/poi_list.html:27
+#: templates/pois/poi_list_archived.html:17
 #: templates/push_notifications/push_notification_list.html:9
 #: templates/regions/region_list.html:14 templates/users/admin/list.html:14
 #: templates/users/region/list.html:9
@@ -2497,7 +2497,7 @@ msgstr "Zurück"
 msgid "Upload File"
 msgstr "Datei hochladen"
 
-#: templates/media/media_list.html:35
+#: templates/media/media_list.html:30
 msgid "Home"
 msgstr "Home"
 

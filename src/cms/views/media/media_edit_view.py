@@ -80,9 +80,12 @@ class MediaEditView(TemplateView):
         region = Region.get_current_region(request)
 
         directory_id = int(kwargs.get("directory_id"))
+        document_id = kwargs.get("document_id")
         directory = None
         if directory_id != 0:
             directory = Directory.objects.get(id=directory_id)
+
+        form = DocumentForm()
 
         if "upload" in request.FILES:
             document = Document()
@@ -93,11 +96,12 @@ class MediaEditView(TemplateView):
             return redirect(
                 "media", **{"region_slug": region.slug, "directory_id": directory_id}
             )
+
         return render(
             request,
             self.template_name,
             {
-                "form": result.get("form"),
+                "form": form,
                 "region_slug": region.slug,
                 "directory_id": directory_id,
                 "document_id": document_id,
