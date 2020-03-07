@@ -1,3 +1,8 @@
+"""
+The module is working as the view component for the dynamic data loading for the media library.
+Therefore, it's managing the region permissions and connects the different data structures.
+Especially, the root file, the use of the file defined in the Document and the different meta data.
+"""
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
@@ -13,10 +18,9 @@ from ...utils.media_utils import get_thumbnail
 @method_decorator(region_permission_required, name="dispatch")
 class MediaListView(TemplateView):
     """
-    View for listing media elements
+    Class representing the media management and renders the dynamic data into the HTML template.
     """
 
-    #: The template to render (see :class:`~django.views.generic.base.TemplateResponseMixin`)
     template_name = "media/media_list.html"
     #: The context dict passed to the template (see :class:`~django.views.generic.base.ContextMixin`)
     base_context = {"current_menu_item": "media"}

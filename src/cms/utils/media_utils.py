@@ -1,3 +1,6 @@
+"""
+Utilitiy functions for the media management. Most of the funtions are used to transform media data to other data types.
+"""
 import hashlib
 import pathlib
 import math
