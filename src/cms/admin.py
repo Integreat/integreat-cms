@@ -30,6 +30,7 @@ from .models import ImprintPageTranslation
 from .models.media.document import Document
 from .models.media.directory import Directory
 from .models.media.file import File
+from .models.media.document_meta import DocumentMeta
 
 admin.site.register(ChatMessage)
 admin.site.register(Configuration)
@@ -56,3 +57,4 @@ admin.site.register(ImprintPageTranslation)
 admin.site.register(Document)
 admin.site.register(Directory)
 admin.site.register(File)
+admin.site.register(DocumentMeta)

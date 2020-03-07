@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 09:57+0000\n"
+"POT-Creation-Date: 2021-02-24 10:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -593,7 +593,7 @@ msgstr "Status"
 msgid "title"
 msgstr "Titel"
 
-#: models/events/event_translation.py:44 models/media/document.py:43
+#: models/events/event_translation.py:44 models/media/document.py:42
 msgid "description"
 msgstr "Beschreibung"
 
@@ -866,23 +866,23 @@ msgstr "Sprach-Knoten"
 msgid "language tree nodes"
 msgstr "Sprach-Knoten"
 
-#: models/media/document.py:47 models/media/document.py:80
+#: models/media/document.py:46 models/media/document.py:79
 msgid "document"
 msgstr "Dokument"
 
-#: models/media/document.py:48
+#: models/media/document.py:47
 msgid "The actual document file"
 msgstr "Die eigentliche Dokumentendatei"
 
-#: models/media/document.py:52
+#: models/media/document.py:51
 msgid "uploaded date"
 msgstr "Upload-Datum"
 
-#: models/media/document.py:53
+#: models/media/document.py:52
 msgid "The date and time when the document was uploaded"
 msgstr "Das Datum und die Uhrzeit, zu der das Dokument hochgeladen wurde"
 
-#: models/media/document.py:82
+#: models/media/document.py:81
 msgid "documents"
 msgstr "Dokumente"
 
@@ -1383,9 +1383,9 @@ msgstr "Benutzerprofile"
 #: templates/events/event_list.html:40
 #: templates/events/event_list_archived.html:29
 #: templates/language_tree/language_tree.html:16
-#: templates/offers/offer_list.html:15 templates/pages/page_tree.html:33
-#: templates/pages/page_tree_archived.html:17 templates/pois/poi_list.html:27
-#: templates/pois/poi_list_archived.html:17
+#: templates/media/media_list.html:8 templates/offers/offer_list.html:15
+#: templates/pages/page_tree.html:33 templates/pages/page_tree_archived.html:17
+#: templates/pois/poi_list.html:27 templates/pois/poi_list_archived.html:17
 #: templates/push_notifications/push_notification_list.html:9
 #: templates/regions/region_list.html:14 templates/users/admin/list.html:14
 #: templates/users/region/list.html:9
@@ -2489,11 +2489,7 @@ msgstr "Absenden"
 msgid "Return"
 msgstr "Zurück"
 
-#: templates/media/media_list.html:14
-msgid "Mediathek"
-msgstr ""
-
-#: templates/media/media_list.html:18
+#: templates/media/media_list.html:12
 msgid "Upload File"
 msgstr "Datei hochladen"
 
