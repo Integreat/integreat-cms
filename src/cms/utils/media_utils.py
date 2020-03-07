@@ -1,5 +1,6 @@
 import hashlib
 import pathlib
+import math
 import os
 
 from PIL import Image
@@ -47,19 +48,39 @@ def delete_old_file(file):
         file.delete()
 
 
-def get_thumb(document, width, height, crop):
-
-    if document.file.type.startswith("image"):
+def get_thumbnail(file, width, height, crop):
+    if file.type.startswith("image"):
         thumb_file_name = os.path.join(
-            MEDIA_ROOT, f"{document.file.hash}_thumb_{width}_{height}_{crop}.png",
+            MEDIA_ROOT, f"{file.hash}_thumb_{width}_{height}_{crop}",
         )
         path = pathlib.Path(thumb_file_name)
-        if not path.is_file():
-            image = Image.open(os.path.join(MEDIA_ROOT, document.file.path))
-            if crop:
-                thumbnail = image.crop((0, 0, width, height))
-            else:
-                thumbnail = image.resize((width, height))
-            thumbnail.save(thumb_file_name)
+        if not path.is_file() or True:
+            try:
+                image = Image.open(os.path.join(MEDIA_ROOT, file.path))
+                if crop:
+                    original_width = image.width
+                    original_height = image.height
+                    width_ratio = original_width / width
+                    height_ratio = original_height / height
+                    if width_ratio < height_ratio:
+                        resized_image = image.resize(
+                            (width, math.ceil(original_height / width_ratio))
+                        )
+                    else:
+                        resized_image = image.resize(
+                            (math.ceil(original_width / height_ratio), height)
+                        )
+                    offset_x = math.floor(resized_image.width - width) / 2
+                    offset_y = math.floor(resized_image.height - height) / 2
+                    print(resized_image.width, resized_image.height)
+                    thumbnail = resized_image.crop(
+                        (offset_x, offset_y, width + offset_x, height + offset_y)
+                    )
+                else:
+                    thumbnail = image.resize((width, height))
+                thumbnail.save(thumb_file_name, image.format)
+            except IOError:
+                return None
+
         return thumb_file_name
     return None

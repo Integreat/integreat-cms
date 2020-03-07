@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 from ...decorators import region_permission_required
 from ...models import Document
 from ...models.media.directory import Directory
-from ...utils.media_utils import get_thumb
+from ...utils.media_utils import get_thumbnail
 
 
 @method_decorator(login_required, name="dispatch")
@@ -40,7 +40,7 @@ class MediaListView(TemplateView):
         documents = Document.objects.all()
         results = {}
         for doc in documents:
-            thumbnail = get_thumb(doc, 300, 300, True)
+            thumbnail = get_thumbnail(doc.file, 300, 300, True)
             results[doc.id] = thumbnail
         directories = Directory.objects.all()
 
