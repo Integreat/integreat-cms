@@ -5,8 +5,8 @@ import os
 
 from PIL import Image
 
+from backend.settings import MEDIA_ROOT, MEDIA_URL
 from cms.models.media.file import File
-from backend.settings import MEDIA_ROOT
 
 file_root = MEDIA_ROOT
 
@@ -48,12 +48,12 @@ def delete_old_file(file):
         file.delete()
 
 
+# pylint: disable=too-many-locals
 def get_thumbnail(file, width, height, crop):
     if file.type.startswith("image"):
-        thumb_file_name = os.path.join(
-            MEDIA_ROOT, f"{file.hash}_thumb_{width}_{height}_{crop}",
-        )
-        path = pathlib.Path(thumb_file_name)
+        thumb_file_name = f"{file.hash}_thumb_{width}_{height}_{crop}"
+        thumb_file_path = os.path.join(MEDIA_ROOT, thumb_file_name)
+        path = pathlib.Path(thumb_file_path)
         if not path.is_file() or True:
             try:
                 image = Image.open(os.path.join(MEDIA_ROOT, file.path))
@@ -77,10 +77,17 @@ def get_thumbnail(file, width, height, crop):
                         (offset_x, offset_y, width + offset_x, height + offset_y)
                     )
                 else:
-                    thumbnail = image.resize((width, height))
-                thumbnail.save(thumb_file_name, image.format)
+                    if width_ratio > height_ratio:
+                        resized_image = image.resize(
+                            (width, math.ceil(original_height / width_ratio))
+                        )
+                    else:
+                        resized_image = image.resize(
+                            (math.ceil(original_width / height_ratio), height)
+                        )
+                thumbnail.save(thumb_file_path, image.format)
             except IOError:
                 return None
 
-        return thumb_file_name
+        return os.path.join(MEDIA_URL, thumb_file_name)
     return None
