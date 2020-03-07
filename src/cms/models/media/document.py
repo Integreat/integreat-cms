@@ -81,3 +81,7 @@ class Document(models.Model):
         verbose_name_plural = _("documents")
         #: The default permissions for this model
         default_permissions = ()
+        permissions = (
+            ("manage_documents", "Can manage documents"),
+            ("can_delete_documents", "Can delete documents"),
+        )

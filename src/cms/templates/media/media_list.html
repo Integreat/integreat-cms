@@ -4,34 +4,40 @@
 {% load thumbnail_tags %}
 {% load static %}
 <div class="table-header">
-    <div class="flex flex-wrap">
-        <form class="table-search relative w-1/2">
-            <i data-feather="search" class="absolute"></i>
-            <input type="search" placeholder="{% trans 'Search' %}" class="h-full pl-10 pr-4 rounded shadow">
-        </form>
-        <div class="w-1/2 flex flex-wrap justify-end">
-            <a href="{% url 'new_upload_file' document_id='0' region_slug=region.slug %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-	            {% trans 'Upload File' %}
-            </a>
+    <div class="flex flex-wrap p-2">
+        <div class="w-1/5">
+            <h2 class="heading font-normal mb-2">{% trans 'Media Library' %}</h2>
         </div>
+        {% if perms.cms.manage_documents %}
+            <div class="w-1/5 flex flex-wrap justify-start">
+                <a href="{% url 'new_upload_file' document_id='0' region_slug=region.slug %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+	                {% trans 'Upload File' %}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="flex flex-wrap p-2 bg-gray-400 rounded w-full">
+        <form class="table-search relative w-1/4">
+            <i data-feather="search" class="absolute"></i>
+            <input type="search" placeholder="{% trans 'Search' %}" class="h-full py-2 pl-10 pr-4 rounded shadow">
+        </form>
     </div>
 </div>
-
-<div class="grid grid-cols-5 gap-4 p-2">
+<div class="grid grid-cols-7 gap-4 p-2">
 
     {% for folder in directory %}
         <div class="flex-col justify-between items-center flex">
             <img src="{% static 'svg/folder.svg' %}" class="fill-current w-1/2 flex-1" />
-            <span> {{ folder.name }} </span>
+            <span class=""> {{ folder.name }} </span>
         </div>
 
     {% endfor %}
 
     {% for obj in documents %}
-        <div class="">
-            <img src="{% generate_thumbnail obj 300 300 True %}" />
-            {{ obj }}
-            {{ obj.uploaded_at}}
+        <div class="flex flex-col justify-between items-center">
+            <img src="{% generate_thumbnail obj 300 300 True %}"S />
+            <span> {{obj}} </span>
+            <span> {{obj.uploaded_at}}
         </div>
     {% endfor %}
 
