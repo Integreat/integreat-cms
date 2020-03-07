@@ -2,7 +2,6 @@
 This module contains view actions for media related objects.
 """
 from django.contrib.auth.decorators import login_required
-from django.forms.models import model_to_dict
 from django.http import JsonResponse
 from django.shortcuts import redirect
 
@@ -58,9 +57,9 @@ def upload_file(request, region_slug, directory_id):
     if "upload" in request.FILES:
         document = Document()
         document.region = region
-        document.directory = directory
+        document.path = directory
         attach_file(document, request.FILES["upload"])
         document.save()
-        return JsonResponse({"success": True, "document": model_to_dict(document)})
+        return JsonResponse({})
 
     return JsonResponse({"success": False, "error": "No file was uploaded"})

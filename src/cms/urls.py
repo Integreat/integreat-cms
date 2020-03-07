@@ -780,7 +780,6 @@ urlpatterns = [
                     include(
                         [
                             url(r"^$", media.MediaListView.as_view(), name="media"),
-                            url(r"^upload$", media.upload_file, name="upload_file"),
                             url(
                                 r"^create_directory$",
                                 media.CreateDirectoryView.as_view(),

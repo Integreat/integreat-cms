@@ -9,9 +9,8 @@ from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 from ...decorators import region_permission_required
-from ...models import Document
+from ...models import Document, Region
 from ...models.media.directory import Directory
-from ...utils.media_utils import get_thumbnail
 
 
 @method_decorator(login_required, name="dispatch")
@@ -41,12 +40,27 @@ class MediaListView(TemplateView):
         :return: The rendered template response
         :rtype: ~django.template.response.TemplateResponse
         """
-        documents = Document.objects.all()
-        results = {}
-        for doc in documents:
-            thumbnail = get_thumbnail(doc.file, 300, 300, True)
-            results[doc.id] = thumbnail
-        directories = Directory.objects.all()
+        slug = kwargs.get("region_slug")
+        region = Region.objects.get(slug=slug)
+        directory_id = int(kwargs.get("directory_id"))
+        breadcrumb = []
+
+        if directory_id != 0:
+            directory = Directory.objects.get(id=directory_id)
+        else:
+            directory = None
+        documents = Document.objects.filter(region=region, path=directory)
+        directories = Directory.objects.filter(region=region, parent=directory)
+
+        current_breadcrumb = directory
+        try:
+            while current_breadcrumb:
+                breadcrumb.append(current_breadcrumb)
+                current_breadcrumb = current_breadcrumb.parent
+        except Directory.DoesNotExist:
+            pass
+
+        breadcrumb.reverse()
 
         return render(
             request,
@@ -54,7 +68,8 @@ class MediaListView(TemplateView):
             {
                 **self.base_context,
                 "documents": documents,
-                "thumbnails": results,
                 "directory": directories,
+                "directory_id": directory_id,
+                "breadcrumb": breadcrumb,
             },
         )

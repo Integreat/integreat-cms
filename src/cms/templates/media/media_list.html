@@ -15,10 +15,10 @@
         </div>
         {% if perms.cms.manage_documents %}
             <div class="w-1/5 flex flex-wrap justify-start">
-                <a href="{% url 'create_directory' region_slug=region.slug directory_id=0%}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <a href="{% url 'create_directory' region_slug=region.slug directory_id=directory_id%}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     {% trans 'Create directory' %}
                 </a>
-                <a href="{% url 'upload_file' region_slug=region.slug directory_id=0 %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <a href="{% url 'edit_file' region_slug=region.slug directory_id=directory_id document_id=0 %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     {% trans 'Upload File' %}
                 </a>
             </div>
@@ -31,13 +31,20 @@
         </form>
     </div>
 </div>
-<div class="grid grid-cols-9 gap-4 p-2">
+<ol class="list-reset flex text-grey-dark m-3">
+    <li><a href="{% url 'media' region_slug=region.slug directory_id=0 %}" class="text-blue font-bold">{% trans 'Home' %}</a></li>
+    {% for dir in breadcrumb %}
+    <li><span class="mx-2">/</span></li>
+    <li><a class="text-blue font-bold" href="{% url 'media' region_slug=region.slug directory_id=dir.id %}">{{dir.name}}</a></li>
+    {% endfor %}
+</ol>
+<a class="grid grid-cols-9 gap-4 p-2">
 
     {% for folder in directory %}
-        <div class="flex-col justify-between items-center flex">
+        <a class="flex-col justify-between items-center flex" href="{% url 'media' region_slug=region.slug directory_id=folder.id %}">
             <img src="{% static 'svg/folder.svg' %}" class="fill-current w-1/2 flex-1" />
             <span class=""> {{ folder.name }} </span>
-        </div>
+        </a>
 
     {% endfor %}
 

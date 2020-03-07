@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext as _
 from django.views.generic import TemplateView
@@ -39,7 +39,7 @@ class CreateDirectoryView(TemplateView):
         region = Region.objects.get(slug=slug)
         directory_id = int(kwargs.get("directory_id"))
         if directory_id != 0:
-            parent_directory = Directory.objects.get(directory_id)
+            parent_directory = Directory.objects.get(id=directory_id)
         else:
             parent_directory = None
 
@@ -49,8 +49,11 @@ class CreateDirectoryView(TemplateView):
         form = DirectoryForm(request.POST, instance=directory)
         if form.is_valid():
             form.save()
-        else:
-            messages.error(request, _("Errors have occurred."))
+            return redirect(
+                "media", **{"region_slug": region.slug, "directory_id": directory_id}
+            )
+
+        messages.error(request, _("Errors have occurred."))
 
         return render(
             request,
