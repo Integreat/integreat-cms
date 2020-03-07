@@ -1,6 +1,8 @@
 {% extends "_base.html" %}
 {% load i18n %}
 {% block content %}
+{% load thumbnail_tags %}
+{% load static %}
 <div class="table-header">
     <div class="flex flex-wrap">
         <form class="table-search relative w-1/2">
@@ -17,10 +19,18 @@
 
 <div class="grid grid-cols-5 gap-4 p-2">
 
+    {% for folder in directory %}
+        <div class="flex-col justify-between items-center flex">
+            <img src="{% static 'svg/folder.svg' %}" class="fill-current w-1/2 flex-1" />
+            <span> {{ folder.name }} </span>
+        </div>
+
+    {% endfor %}
+
     {% for obj in documents %}
-        <div class="p-2">
-            <img src="/" />
-            {{ obj.path }}
+        <div class="">
+            <img src="{% generate_thumbnail obj 300 300 True %}" />
+            {{ obj }}
             {{ obj.uploaded_at}}
         </div>
     {% endfor %}
