@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
     <div class="w-full max-w-full">
-        <form id="upload_form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" enctype="multipart/form-data">
+        <form id="upload_form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" enctype="multipart/form-data" action="{% url 'upload_file' region_slug=region.slug %}">
             {% csrf_token %}
             {{ form.as_p }}
 

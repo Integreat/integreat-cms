@@ -28,12 +28,11 @@ class Document(models.Model):
     :param meta_data: The meta properties of this document
     """
 
-    file = models.ForeignKey(File, related_name="documents", on_delete=models.CASCADE)
-    path = models.ForeignKey(
-        Directory, related_name="documents", on_delete=models.PROTECT
+    file = models.ForeignKey(
+        File, related_name="documents", on_delete=models.CASCADE, null=True
     )
-    region = models.ForeignKey(
-        Region, related_name="documents", on_delete=models.CASCADE
+    path = models.ForeignKey(
+        Directory, related_name="documents", on_delete=models.PROTECT, null=True
     )
     region = models.ForeignKey(
         Region, related_name="documents", on_delete=models.CASCADE

@@ -1,8 +1,9 @@
 from ..placeholder_model_form import PlaceholderModelForm
 from ...models import Document
+from django import forms
 
 
-class DocumentForm(PlaceholderModelForm):
+class DocumentForm(forms.Form):
     """
     Form for creating and modifying document objects
     """
@@ -16,3 +17,5 @@ class DocumentForm(PlaceholderModelForm):
         #: The model of this :class:`django.forms.ModelForm`
         model = Document
         fields = ()
+
+    upload = forms.FileField()
