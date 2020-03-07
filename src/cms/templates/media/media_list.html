@@ -15,8 +15,11 @@
         </div>
         {% if perms.cms.manage_documents %}
             <div class="w-1/5 flex flex-wrap justify-start">
-                <a href="{% url 'new_upload_file' document_id='0' region_slug=region.slug %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-	                {% trans 'Upload File' %}
+                <a href="{% url 'create_directory' region_slug=region.slug directory_id=0%}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    {% trans 'Create directory' %}
+                </a>
+                <a href="{% url 'upload_file' region_slug=region.slug directory_id=0 %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    {% trans 'Upload File' %}
                 </a>
             </div>
         {% endif %}

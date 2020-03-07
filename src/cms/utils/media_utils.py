@@ -57,7 +57,7 @@ def get_thumbnail(file, width, height, crop):
         thumb_file_name = f"{file.hash}_thumb_{width}_{height}_{crop}"
         thumb_file_path = os.path.join(MEDIA_ROOT, thumb_file_name)
         path = pathlib.Path(thumb_file_path)
-        if not path.is_file() or True:
+        if not path.is_file():
             try:
                 image = Image.open(os.path.join(MEDIA_ROOT, file.path))
                 if crop:

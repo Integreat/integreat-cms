@@ -776,11 +776,16 @@ urlpatterns = [
                 ),
                 url(r"^settings/$", settings.SettingsView.as_view(), name="settings"),
                 url(
-                    r"^media/",
+                    r"^media/(?P<directory_id>[0-9]+)/",
                     include(
                         [
                             url(r"^$", media.MediaListView.as_view(), name="media"),
                             url(r"^upload$", media.upload_file, name="upload_file"),
+                            url(
+                                r"^create_directory$",
+                                media.CreateDirectoryView.as_view(),
+                                name="create_directory",
+                            ),
                             url(
                                 r"^(?P<document_id>[0-9]+)/",
                                 include(

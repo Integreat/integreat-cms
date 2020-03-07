@@ -94,12 +94,12 @@
 	        </a>
 			{% endif %}
 			<div class="{% if current_menu_item == 'media' %}active{% elif current_menu_item == 'media_upload' %}active{% endif %}">
-				<a href="{% url 'media' region_slug=region.slug %}" class="relative block text-gray-300 hover:text-gray-600 hover:bg-integreat">
+				<a href="{% url 'media' region_slug=region.slug directory_id=0  %}" class="relative block text-gray-300 hover:text-gray-600 hover:bg-integreat">
 					<i data-feather='file' class="absolute"></i>
 					{% trans 'Media Library' %}
 				</a>
 				<div class="dropdown-container flex-col">
-					<a href="{% url 'media' region_slug=region.slug %}" class="{% if current_menu_item == 'media' %}active{% endif %}">
+					<a href="{% url 'media' region_slug=region.slug directory_id=0 %}" class="{% if current_menu_item == 'media' %}active{% endif %}">
 						{% trans 'All media files' %}
 					</a>
 					<a href="{% url 'new_upload_file' document_id='0' region_slug=region.slug %}" class="{% if current_menu_item == 'media_upload' %}active{% endif %}">
