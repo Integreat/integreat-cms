@@ -19,7 +19,7 @@
 
     {% for obj in documents %}
         <div class="p-2">
-            <img src="https://picsum.photos/300" />
+            <img src="/{{thumbnails[obj.id]}}" />
             {{ obj.path }}
             {{ obj.uploaded_at}}
         </div>

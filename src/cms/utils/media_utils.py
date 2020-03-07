@@ -48,16 +48,18 @@ def delete_old_file(file):
 
 
 def get_thumb(document, width, height, crop):
+
     if document.file.type.startswith("image"):
         thumb_file_name = os.path.join(
-            MEDIA_ROOT, f"{document.file.hash}_thumb_{width}_{height}_{crop}",
+            MEDIA_ROOT, f"{document.file.hash}_thumb_{width}_{height}_{crop}.png",
         )
-        if not pathlib.Path.is_file(thumb_file_name):
-            image = Image.open(document.file.path)
+        path = pathlib.Path(thumb_file_name)
+        if not path.is_file():
+            image = Image.open(os.path.join(MEDIA_ROOT, document.file.path))
             if crop:
-                image.crop((width, height))
+                thumbnail = image.crop((0, 0, width, height))
             else:
-                image.resize((width, height))
-            image.save(thumb_file_name)
+                thumbnail = image.resize((width, height))
+            thumbnail.save(thumb_file_name)
         return thumb_file_name
     return None
