@@ -23,6 +23,7 @@
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "htmldiff-js": "^1.0.5",
+    "jsdoc": "^3.6.6",
     "less": "^4.1.1",
     "less-plugin-clean-css": "^1.5.1",
     "node-sass": "^5.0.0",
