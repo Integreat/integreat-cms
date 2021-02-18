@@ -1,8 +1,13 @@
 {% extends "_base.html" %}
 {% load i18n %}
 {% load compress %}
-{% block content %}
+{% load static %}
 
+{% block javascript_head %}
+<script src="{% static 'chart.js/dist/Chart.js' %}"></script>
+{% endblock %}
+
+{% block content %}
 <div class="row">
     <div class="col-sm-12">
         <h2 class="heading font-normal mb-2">{% trans 'Statistics' %}</h2>
