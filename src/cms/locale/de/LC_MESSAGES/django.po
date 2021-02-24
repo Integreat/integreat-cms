@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 10:14+0000\n"
+"POT-Creation-Date: 2021-02-24 11:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -1445,129 +1445,125 @@ msgstr "Medienbibliothek"
 msgid "All media files"
 msgstr "Alle Mediendateien"
 
-#: templates/_base.html:106
-msgid "Upload new media file"
-msgstr "Neue Mediendatei hochladen"
-
-#: templates/_base.html:114 templates/feedback/region_feedback_list.html:24
+#: templates/_base.html:111 templates/feedback/region_feedback_list.html:24
 #: templates/feedback/region_feedback_list.html:136
 #: templates/pages/page_tree.html:17
 msgid "Pages"
 msgstr "Seiten"
 
-#: templates/_base.html:118
+#: templates/_base.html:115
 msgid "All pages"
 msgstr "Alle Seiten"
 
-#: templates/_base.html:122 templates/pages/page_tree.html:48
+#: templates/_base.html:119 templates/pages/page_tree.html:48
 #: templates/pages/page_tree.html:52
 msgid "Create page"
 msgstr "Seite erstellen"
 
-#: templates/_base.html:132 templates/events/event_list.html:23
+#: templates/_base.html:129 templates/events/event_list.html:23
 #: templates/feedback/region_feedback_list.html:143
 #: templates/regions/region_form.html:106
 msgid "Events"
 msgstr "Veranstaltungen"
 
-#: templates/_base.html:136
+#: templates/_base.html:133
 msgid "All events"
 msgstr "Alle Veranstaltungen"
 
-#: templates/_base.html:140 templates/events/event_list.html:50
+#: templates/_base.html:137 templates/events/event_list.html:50
 msgid "Create event"
 msgstr "Veranstaltung erstellen"
 
-#: templates/_base.html:150 templates/pois/poi_list.html:11
+#: templates/_base.html:147 templates/pois/poi_list.html:11
 msgid "Locations on map"
 msgstr "Orte auf Karte"
 
-#: templates/_base.html:154
+#: templates/_base.html:151
 msgid "All locations"
 msgstr "Alle Orte"
 
-#: templates/_base.html:158 templates/pois/poi_list.html:32
+#: templates/_base.html:155 templates/pois/poi_list.html:32
 msgid "Create location"
 msgstr "Ort erstellen"
 
-#: templates/_base.html:168 templates/_base.html:256
+#: templates/_base.html:165 templates/_base.html:253
 msgid "Users"
 msgstr "Benutzer"
 
-#: templates/_base.html:172
+#: templates/_base.html:169
 msgid "All users"
 msgstr "Alle Benutzer"
 
-#: templates/_base.html:175 templates/users/admin/list.html:18
+#: templates/_base.html:172 templates/users/admin/list.html:18
 #: templates/users/region/list.html:13
 msgid "Create user"
 msgstr "Benutzer erstellen"
 
-#: templates/_base.html:183 templates/_base.html:280
+#: templates/_base.html:180 templates/_base.html:277
 #: templates/feedback/region_feedback_list.html:6
 msgid "Feedback"
 msgstr "Feedback"
 
-#: templates/_base.html:190
+#: templates/_base.html:187
 msgid "Push Notifications"
 msgstr "Push-Benachrichtigungen"
 
-#: templates/_base.html:194
+#: templates/_base.html:191
 msgid "All push notifications"
 msgstr "Alle Push-Benachrichtigungen"
 
-#: templates/_base.html:198
+#: templates/_base.html:195
 #: templates/push_notifications/push_notification_list.html:13
 msgid "Create push notification"
 msgstr "Push-Benachrichtigung verfassen"
 
-#: templates/_base.html:207 templates/offers/offer_list.html:9
+#: templates/_base.html:204 templates/offers/offer_list.html:9
 msgid "Offers"
 msgstr "Angebote"
 
-#: templates/_base.html:213
+#: templates/_base.html:210
 msgid "Imprint"
 msgstr "Impressum"
 
-#: templates/_base.html:220 templates/language_tree/language_tree.html:10
+#: templates/_base.html:217 templates/language_tree/language_tree.html:10
 msgid "Language tree"
 msgstr "Sprach-Baum"
 
-#: templates/_base.html:224
+#: templates/_base.html:221
 msgid "All language tree nodes"
 msgstr "Alle Sprach-Knoten"
 
-#: templates/_base.html:227 templates/language_tree/language_tree.html:20
+#: templates/_base.html:224 templates/language_tree/language_tree.html:20
 msgid "Create language tree node"
 msgstr "Sprach-Knoten hinzufügen"
 
-#: templates/_base.html:234 templates/_base.html:285
+#: templates/_base.html:231 templates/_base.html:282
 #: templates/push_notifications/push_notification_form.html:84
 #: templates/statistics/statistics_dashboard.html:62
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: templates/_base.html:239
+#: templates/_base.html:236
 msgid "Admin Dashboard"
 msgstr "Admin Dashboard"
 
-#: templates/_base.html:244
+#: templates/_base.html:241
 msgid "Regions"
 msgstr "Regionen"
 
-#: templates/_base.html:250
+#: templates/_base.html:247
 msgid "Languages"
 msgstr "Sprachen"
 
-#: templates/_base.html:262
+#: templates/_base.html:259
 msgid "Roles"
 msgstr "Rollen"
 
-#: templates/_base.html:268
+#: templates/_base.html:265
 msgid "Organizations"
 msgstr "Organisationen"
 
-#: templates/_base.html:274
+#: templates/_base.html:271
 msgid "Offer templates"
 msgstr "Angebots-Vorlagen"
 
@@ -4169,9 +4165,10 @@ msgstr ""
 "Ein Benutzer muss entweder Mitarbeiter/Super-Administrator sein, oder "
 "mindestens einer Region zugewiesen sein."
 
-#, fuzzy
-#~| msgid "Archived Points of Interest"
-#~ msgid "Points of Interest"
+#~ msgid "Upload new media file"
+#~ msgstr "Neue Mediendatei hochladen"
+
+#~ msgid "Archived Points of Interest"
 #~ msgstr "Archivierte Points of Interest"
 
 #~ msgid "PDF Export"
