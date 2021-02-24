@@ -4,6 +4,19 @@
 {% load static %}
 {% load content_filters %}
 
+{% block css %}
+    <link href="{% static 'tablesort/tablesort.css' %}" rel="stylesheet" type="text/css">
+    {# The following style fixes issues with the arrow denoting the sorting order being wrapped to the next line #}
+    <style>
+        th[role=columnheader]:not(.no-sort) {
+            padding-right: 20px;
+        }
+        th[role=columnheader]:not(.no-sort):after {
+            margin-right: -20px;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 <div class="table-header">
     <div class="flex flex-wrap">
@@ -37,13 +50,13 @@
 </div>
 
 <div class="table-listing">
-    <table class="w-full mt-4 rounded border border-solid border-gray-400 shadow bg-white table-fixed">
+    <table id="pois-list" class=" sort w-full mt-4 rounded border border-solid border-gray-400 shadow bg-white table-fixed">
         <thead>
             <tr class="border-b border-solid border-gray-400">
                 <th class="text-sm text-left uppercase py-3 pl-4 pr-2 min">{% trans 'ID' %}</th>
                 <th class="text-sm text-left uppercase py-3 pr-2 min">{% trans 'Version' %}</th>
-                <th class="text-sm text-left uppercase py-3">{% trans 'Status' %}</th>
-                <th class="text-sm text-left uppercase py-3">{% trans 'Title in' %} {{ language.translated_name }}</th>
+                <th class="text-sm text-left uppercase py-3 px-2">{% trans 'Status' %}</th>
+                <th class="text-sm text-left uppercase py-3 px-2" data-sort-default>{% trans 'Title in' %} {{ language.translated_name }}</th>
                 {% get_current_language as LANGUAGE_CODE %}
                 {% unify_language_code LANGUAGE_CODE as LANGUAGE_CODE %}
                 {% if LANGUAGE_CODE != language.code %}
@@ -52,20 +65,20 @@
                         <th class="text-sm text-left uppercase py-3 px-2">{% trans 'Title in' %} {{ backend_language.translated_name }}</th>
                     {% endif %}
                 {% endif %}
-                <th class="text-sm text-left uppercase py-3 px-2">
-                    <div class="lang-grid flags" style="white-space: nowrap;">
-	                    {% for lang in languages %}
-		                    <a href="{% url 'pois' region_slug=region.slug language_code=lang.code %}">
-			                    <img src="{% static '' %}images/flags/{{ lang.code }}.png" title="{{ lang.name }}" />
-		                    </a>
-	                    {% endfor %}
+                <th class="text-sm text-left uppercase py-3 px-2 no-sort" data-sort-method="none">
+                    <div class="lang-grid flags">
+                        {% for lang in languages %}
+                            <a href="{% url 'pois' region_slug=region.slug language_code=lang.code %}">
+                                <img src="{% static '' %}images/flags/{{ lang.code }}.png" title="{{ lang.name }}"/>
+                            </a>
+                        {% endfor %}
                     </div>
                 </th>
-                <th class="text-sm text-left uppercase py-3">{% trans 'Street' %}</th>
-                <th class="text-sm text-left uppercase py-3">{% trans 'Postal Code' %}</th>
-	            <th class="text-sm text-left uppercase py-3">{% trans 'City' %}</th>
-	            <th class="text-sm text-left uppercase py-3">{% trans 'Country' %}</th>
-                <th class="text-sm text-right uppercase py-3 pl-2 pr-4 min">{% trans 'Options' %}</th>
+                <th class="text-sm text-left uppercase py-3 px-2">{% trans 'Street' %}</th>
+                <th class="text-sm text-left uppercase py-3 px-2">{% trans 'Postal Code' %}</th>
+	            <th class="text-sm text-left uppercase py-3 px-2">{% trans 'City' %}</th>
+	            <th class="text-sm text-left uppercase py-3 px-2">{% trans 'Country' %}</th>
+                <th class="text-sm text-right uppercase py-3 pl-2 pr-4 min no-sort" data-sort-method="none">{% trans 'Options' %}</th>
             </tr>
         </thead>
         <tbody>
@@ -87,5 +100,18 @@
 
 {% block javascript %}
 <script src="{% static 'js/confirmation-popups.js' %}"></script>
+<script src="{% static 'tablesort/dist/tablesort.min.js' %}"></script>
+<script src="{% static 'tablesort/dist/sorts/tablesort.date.min.js' %}"></script>
+<script src="{% static 'tablesort/dist/sorts/tablesort.number.min.js' %}"></script>
+
+{% endblock %}
+
+{% block javascript_nocompress %}
+
+<script>
+    // Add sorting functionality to pois table
+    new Tablesort(document.getElementById("pois-list"));
+</script>
+
 {% endblock %}
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-08 13:29+0000\n"
+"POT-Creation-Date: 2021-02-24 11:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: constants/administrative_division.py:38 templates/events/event_form.html:278
-#: templates/pois/poi_list.html:66 templates/pois/poi_list_archived.html:40
+#: templates/pois/poi_list.html:79 templates/pois/poi_list_archived.html:40
 msgid "City"
 msgstr "Stadt"
 
@@ -1374,7 +1374,7 @@ msgstr "Benutzerprofile"
 #: templates/language_tree/language_tree.html:16
 #: templates/media/media_list.html:8 templates/offers/offer_list.html:15
 #: templates/pages/page_tree.html:33 templates/pages/page_tree_archived.html:17
-#: templates/pois/poi_list.html:27 templates/pois/poi_list_archived.html:17
+#: templates/pois/poi_list.html:40 templates/pois/poi_list_archived.html:17
 #: templates/push_notifications/push_notification_list.html:9
 #: templates/regions/region_list.html:14 templates/users/admin/list.html:14
 #: templates/users/region/list.html:9
@@ -1467,7 +1467,7 @@ msgstr "Alle Veranstaltungen"
 msgid "Create event"
 msgstr "Veranstaltung erstellen"
 
-#: templates/_base.html:170 templates/pois/poi_list.html:11
+#: templates/_base.html:170 templates/pois/poi_list.html:24
 msgid "Locations on map"
 msgstr "Orte auf Karte"
 
@@ -1475,7 +1475,7 @@ msgstr "Orte auf Karte"
 msgid "All locations"
 msgstr "Alle Orte"
 
-#: templates/_base.html:178 templates/pois/poi_list.html:32
+#: templates/_base.html:178 templates/pois/poi_list.html:45
 msgid "Create location"
 msgstr "Ort erstellen"
 
@@ -1872,7 +1872,7 @@ msgstr "Event \"%(event_title)s\" bearbeiten"
 #: templates/pages/page_form.html:53 templates/pages/page_tree.html:70
 #: templates/pages/page_tree.html:76 templates/pages/page_tree_archived.html:29
 #: templates/pages/page_tree_archived.html:35 templates/pois/poi_form.html:52
-#: templates/pois/poi_list.html:46 templates/pois/poi_list.html:52
+#: templates/pois/poi_list.html:59 templates/pois/poi_list.html:65
 #: templates/pois/poi_list_archived.html:29
 #: templates/pois/poi_list_archived.html:35
 msgid "Title in"
@@ -1915,7 +1915,7 @@ msgstr "Übersetzung erstellen"
 #: templates/imprint/imprint_sbs.html:151 templates/pages/page_sbs.html:80
 #: templates/pages/page_sbs.html:147 templates/pages/page_sbs.html:152
 #: templates/pages/page_tree_archived.html:27 templates/pois/poi_form.html:133
-#: templates/pois/poi_list.html:44 templates/pois/poi_list_archived.html:27
+#: templates/pois/poi_list.html:57 templates/pois/poi_list_archived.html:27
 msgid "Version"
 msgstr "Version"
 
@@ -1928,7 +1928,7 @@ msgstr "Version"
 #: templates/pages/page_revisions.html:44 templates/pages/page_sbs.html:82
 #: templates/pages/page_sbs.html:149 templates/pages/page_sbs.html:154
 #: templates/pages/page_tree.html:69 templates/pages/page_tree_archived.html:28
-#: templates/pois/poi_form.html:135 templates/pois/poi_list.html:45
+#: templates/pois/poi_form.html:135 templates/pois/poi_list.html:58
 #: templates/pois/poi_list_archived.html:28
 #: templates/regions/region_list.html:32
 msgid "Status"
@@ -1968,12 +1968,12 @@ msgstr ""
 "Erstelle einen Veranstaltungsort oder beginne den Namen eines bestehenden "
 "Veranstaltungsortes einzutippen"
 
-#: templates/events/event_form.html:276 templates/pois/poi_list.html:64
+#: templates/events/event_form.html:276 templates/pois/poi_list.html:77
 #: templates/pois/poi_list_archived.html:38
 msgid "Street"
 msgstr "Straße"
 
-#: templates/events/event_form.html:280 templates/pois/poi_list.html:67
+#: templates/events/event_form.html:280 templates/pois/poi_list.html:80
 #: templates/pois/poi_list_archived.html:41
 msgid "Country"
 msgstr "Land"
@@ -2070,7 +2070,7 @@ msgstr "Veranstaltungen filtern"
 
 #: templates/events/event_list.html:63
 #: templates/events/event_list_archived.html:46
-#: templates/pages/page_tree_archived.html:26 templates/pois/poi_list.html:43
+#: templates/pages/page_tree_archived.html:26 templates/pois/poi_list.html:56
 #: templates/pois/poi_list_archived.html:26
 msgid "ID"
 msgstr "ID"
@@ -2091,7 +2091,7 @@ msgstr "Ende"
 #: templates/offer_templates/offer_template_list.html:29
 #: templates/organizations/organization_list.html:27
 #: templates/pages/page_tree.html:89 templates/pages/page_tree_archived.html:47
-#: templates/pois/poi_list.html:68 templates/pois/poi_list_archived.html:42
+#: templates/pois/poi_list.html:81 templates/pois/poi_list_archived.html:42
 #: templates/roles/list.html:25
 msgid "Options"
 msgstr "Optionen"
@@ -2960,15 +2960,15 @@ msgstr "Ort löschen"
 msgid "Delete this location"
 msgstr "Diesen Ort löschen"
 
-#: templates/pois/poi_list.html:16 templates/pois/poi_list_archived.html:11
+#: templates/pois/poi_list.html:29 templates/pois/poi_list_archived.html:11
 msgid "Archived locations"
 msgstr "Archivierte Orte"
 
-#: templates/pois/poi_list.html:65 templates/pois/poi_list_archived.html:39
+#: templates/pois/poi_list.html:78 templates/pois/poi_list_archived.html:39
 msgid "Postal Code"
 msgstr "Postleitzahl"
 
-#: templates/pois/poi_list.html:78
+#: templates/pois/poi_list.html:91
 msgid "No locations available yet."
 msgstr "Noch keine Orte vorhanden."
 
