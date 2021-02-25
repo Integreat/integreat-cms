@@ -48,8 +48,7 @@
       "last_updated": "2019-08-12T07:48:17.998Z",
       "statistics_enabled": false,
       "matomo_url": "",
-      "matomo_token": "",
-      "matomo_ssl_verify": true
+      "matomo_token": ""
     }
   },
   {
@@ -73,8 +72,7 @@
       "last_updated": "2019-08-12T07:50:05.573Z",
       "statistics_enabled": false,
       "matomo_url": "",
-      "matomo_token": "",
-      "matomo_ssl_verify": true
+      "matomo_token": ""
     }
   },
   {

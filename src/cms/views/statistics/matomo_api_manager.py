@@ -17,15 +17,12 @@ class MatomoApiManager:
 
     #: HTTP Protocol: ``http://`` or ``https://``
     protocol = "https://"
-    #: Variable which allows you also to accept broken SSL-certificates with requests library (``False`` means: ignore
-    #: SSL-issues, ``True`` means: don't allow broken SSL-certificates)
-    ssl_verify = True
     #: URL to Matomo-Instance
     matomo_url = ""
     #: Matomo API-key
     matomo_api_key = ""
 
-    def __init__(self, matomo_url, matomo_api_key, ssl_verify):
+    def __init__(self, matomo_url, matomo_api_key):
         """
         Constructor initializes matomo_url, matomo_api_key and ssl_verify
 
@@ -35,8 +32,6 @@ class MatomoApiManager:
         :param matomo_api_key: Matomo API-key
         :type matomo_api_key: str
 
-        :param ssl_verify: Whether to check for broken SSL-certificates
-        :type ssl_verify: bool
         """
 
         self.matomo_url = matomo_url
@@ -44,7 +39,6 @@ class MatomoApiManager:
         self.matomo_api_key = (
             "&token_auth=" + self.matomo_api_key
         )  # concats token api-parameter
-        self.ssl_verify = ssl_verify
         self.cleanmatomo_url()  # cleans matomo url for proper requests
 
     def cleanmatomo_url(self):
@@ -72,9 +66,7 @@ class MatomoApiManager:
         """
 
         try:
-            http_code = requests.get(
-                self.matomo_url, verify=self.ssl_verify
-            ).status_code
+            http_code = requests.get(self.matomo_url).status_code
             if http_code == 200:
                 return True
             return False
@@ -88,8 +80,8 @@ class MatomoApiManager:
         :param date_string: Time range in the format ``"yyyy-mm-dd,yyyy-mm-dd"``
         :type date_string: str
 
-        :param region_id: The id of the requested region
-        :type region_id: str
+        :param region_id: The matomo website id.
+        :type region_id: int
 
         :param period: The period (e.g. ``"day"``, ``"week"``, ``"month"`` or ``"year"``)
         :type period: str
@@ -103,11 +95,12 @@ class MatomoApiManager:
 
         domain = self.matomo_url
         api_key = self.matomo_api_key
+
         url = f"""{domain}/index.php?date={date_string}&expanded=1
         &filter_limit=-1&format=JSON&format_metrics=1
         &idSite={region_id}&method=API.get&module=API&period={period}
         &segment=pageUrl%253D@%25252F{lang}
-        %25252Fwp-json%25252F{api_key}"""
+        %25252Fwp-json%25252F&auth_token={api_key}"""
 
         session = requests.Session()
         retry = Retry(connect=3, backoff_factor=0.5)
@@ -155,3 +148,22 @@ class MatomoApiManager:
                         ]
                     )
         return result
+
+    def get_region_id_by_user(self, auth_key):
+        """
+        Returns the matomo website id based on the provided authentification key.
+
+        :param auth_key: The authentification key received by a matomo user account.
+        :type auth_key: str
+
+
+        """
+        domain = self.matomo_url
+
+        # Define API-Method
+        url = f"""{domain}/index.php?method=SitesManager.getSitesIdWithAdminAccess&module=API&token_auth={auth_key}"""
+
+        try:
+            result = requests.get(url)
+        except requests.exceptions.RequestException as e:  # This is the correct syntax
+            raise ConnectionError(e)

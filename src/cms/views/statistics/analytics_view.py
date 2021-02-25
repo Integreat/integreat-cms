@@ -24,7 +24,7 @@ class AnalyticsView(TemplateView):
     """
 
     #: The template to render (see :class:`~django.views.generic.base.TemplateResponseMixin`)
-    template_name = "statistics/statistics_dashboard.html"
+    template_name = "statistics/statistics_overview.html"
     #: The context dict passed to the template (see :class:`~django.views.generic.base.ContextMixin`)
     base_context = {"current_menu_item": "statistics"}
 
@@ -85,7 +85,7 @@ class AnalyticsView(TemplateView):
             "start_date", str(date.today() - timedelta(days=30))
         )
         end_date = request.GET.get("end_date", str(date.today()))
-        if (start_date == "") or (end_date == ""):
+        if (start_date == "") or (end_date == "") or (start_date > end_date):
             messages.error(request, _("Please enter a correct start and end date"))
             return redirect("statistics", region_slug=region_slug)
 
@@ -93,6 +93,27 @@ class AnalyticsView(TemplateView):
             ["de", "Deutsch", "#7e1e9c"],
             ["en", "Englisch", "#15b01a"],
             ["ar", "Arabisch", "#0343df"],
+            ["en", "Englisch", "#0343df"],
+            ["es", "Spanisch", "#ff81c0"],
+            ["fr", "Französisch", "#653700"],
+            ["ar", "Arabisch", "#e50000"],
+            ["fa", "Farsi", "#00ffff"],
+            ["am", "Amharisch", "#029386"],
+            ["ru", "Russisch", "#f97306"],
+            ["tr", "Türkisch", "#96f97b"],
+            ["ro", "Rumänisch", "#c20078"],
+            ["ku", "Kurdisch", "#ffff14"],
+            ["ti", "Tigrinya", "#75bbfd"],
+            ["sr", "Serbisch", "#929591"],
+            ["per", "Persisch", "#89fe05"],
+            ["bg", "Bulgarisch", "#bf77f6"],
+            ["so", "Somali", "#9a0eea"],
+            ["pl", "Polnisch", "#033500"],
+            ["de-si", "Einfaches Deutsch", "#06c2ac"],
+            ["hr", "Kroatisch", "#06c2ac"],
+            ["it", "Italienisch", "#c79fef"],
+            ["hu", "Ungarisch", "#00035b"],
+            ["el", "Griechisch", "#d1b26f"],
         ]
 
         api_man = MatomoApiManager(

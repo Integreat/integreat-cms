@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-04 10:11+0000\n"
+"POT-Creation-Date: 2021-03-04 10:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -574,7 +574,7 @@ msgstr "Einstellungen"
 #: models/languages/language_tree_node.py:37 models/offers/offer.py:24
 #: models/pages/imprint_page.py:21 models/pages/page.py:40
 #: models/pois/poi.py:18 models/push_notifications/push_notification.py:17
-#: models/regions/region.py:312
+#: models/regions/region.py:305
 msgid "region"
 msgstr "Region"
 
@@ -1359,21 +1359,11 @@ msgstr ""
 "Das geheime Matomo-Zugangs-Token der Region wird zur Authentifizierung bei "
 "API-Anfragen verwendet"
 
-#: models/regions/region.py:127
-msgid "activate SSL verification for Matomo"
-msgstr "SSL-Verifikation für Matomo aktivieren"
-
-#: models/regions/region.py:129
-msgid "Don't allow invalid SSL-certificates when interacting with Matomo API"
-msgstr ""
-"Erlaube keine ungültigen SSL-Zertifikate bei der Interaktion mit der Matomo "
-"API"
-
-#: models/regions/region.py:135
+#: models/regions/region.py:128
 msgid "activate page-specific permissions"
 msgstr "Seiten-spezifische-Berechtigungen aktivieren"
 
-#: models/regions/region.py:137
+#: models/regions/region.py:130
 msgid ""
 "This allows individual users to be granted the right to edit or publish a "
 "specific page."
@@ -1381,22 +1371,22 @@ msgstr ""
 "Damit kann einzelnen Benutzern das Recht zum Bearbeiten oder Veröffentlichen "
 "einer bestimmten Seite eingeräumt werden."
 
-#: models/regions/region.py:145 models/users/organization.py:23
+#: models/regions/region.py:138 models/users/organization.py:23
 msgid "logo"
 msgstr "Logo"
 
-#: models/regions/region.py:150
+#: models/regions/region.py:143
 msgid "activate author chat"
 msgstr "Autoren-Chat aktivieren"
 
-#: models/regions/region.py:152
+#: models/regions/region.py:145
 msgid ""
 "This gives all users of this region access to the cross-regional author chat."
 msgstr ""
 "Dies gewährt allen Benutzern dieser Region Zugang zum überregionalen Autoren-"
 "Chat."
 
-#: models/regions/region.py:314 models/users/user_profile.py:30
+#: models/regions/region.py:307 models/users/user_profile.py:30
 msgid "regions"
 msgstr "Regionen"
 
@@ -1514,7 +1504,7 @@ msgid "Translation Report"
 msgstr "Übersetzungs-Bericht"
 
 #: templates/_base.html:88 templates/regions/region_form.html:132
-#: templates/statistics/statistics_dashboard.html:13
+#: templates/statistics/statistics_overwiew.html:13
 msgid "Statistics"
 msgstr "Statistiken"
 
@@ -1613,7 +1603,7 @@ msgstr "Sprach-Knoten hinzufügen"
 
 #: templates/_base.html:229 templates/_base.html:280
 #: templates/push_notifications/push_notification_form.html:84
-#: templates/statistics/statistics_dashboard.html:67
+#: templates/statistics/statistics_overwiew.html:67
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -3124,42 +3114,42 @@ msgstr "Autoren-Chat"
 msgid "Push notifications"
 msgstr "Push-Benachrichtigungen"
 
-#: templates/regions/region_form.html:156
+#: templates/regions/region_form.html:151
 msgid "Page permissions"
 msgstr "Seiten-Berechtigungen"
 
-#: templates/regions/region_form.html:169
+#: templates/regions/region_form.html:164
 msgid "Duplicate content of another region"
 msgstr "Inhalte aus einer anderen Region duplizieren"
 
-#: templates/regions/region_form.html:172
+#: templates/regions/region_form.html:167
 msgid "Copy languages, pages and media from another region"
 msgstr "Sprachen, Seiten und Medien aus einer anderen Region kopieren"
 
-#: templates/regions/region_form.html:185
+#: templates/regions/region_form.html:180
 msgid "Delete region"
 msgstr "Region löschen"
 
-#: templates/regions/region_form.html:186
+#: templates/regions/region_form.html:181
 msgid "Please confirm that you really want to delete this region."
 msgstr "Bitte bestätigen Sie, dass diese Region gelöscht werden soll"
 
-#: templates/regions/region_form.html:187
+#: templates/regions/region_form.html:182
 msgid "This can not be reversed."
 msgstr "Dies kann nicht rückgängig gemacht werden."
 
-#: templates/regions/region_form.html:187
+#: templates/regions/region_form.html:182
 msgid "All pages, events and locations of this region will also be deleted."
 msgstr ""
 "Alle Seiten, Veranstaltungen und Orte dieser Region werden ebenfalls "
 "gelöscht."
 
-#: templates/regions/region_form.html:187
+#: templates/regions/region_form.html:182
 msgid "Users, who only have access to this region, will be removed as well."
 msgstr ""
 "Benutzer, die nur Zugriff auf diese Region besitzen, werden auch entfernt."
 
-#: templates/regions/region_form.html:191
+#: templates/regions/region_form.html:186
 msgid "Delete this region"
 msgstr "Diese Region löschen"
 
@@ -3399,48 +3389,48 @@ msgstr "Diese Einstellung gilt nur für dieses Gerät."
 msgid "Change language"
 msgstr "Sprache ändern"
 
-#: templates/statistics/statistics_dashboard.html:19
+#: templates/statistics/statistics_overwiew.html:19
 msgid "Page views"
 msgstr "Seitenaufrufe"
 
-#: templates/statistics/statistics_dashboard.html:70
+#: templates/statistics/statistics_overwiew.html:70
 msgid "Select start time"
 msgstr "Startzeitpunkt auswählen"
 
-#: templates/statistics/statistics_dashboard.html:72
+#: templates/statistics/statistics_overwiew.html:72
 msgid "Select end time"
 msgstr "Endzeitpunkt auswählen"
 
-#: templates/statistics/statistics_dashboard.html:77
+#: templates/statistics/statistics_overwiew.html:77
 msgid "Month view"
 msgstr "Monatsansicht"
 
-#: templates/statistics/statistics_dashboard.html:81
+#: templates/statistics/statistics_overwiew.html:81
 msgid "Year view"
 msgstr "Jahresansicht"
 
-#: templates/statistics/statistics_dashboard.html:84
+#: templates/statistics/statistics_overwiew.html:84
 msgid "Customize view"
 msgstr "Ansicht anpassen"
 
-#: templates/statistics/statistics_dashboard.html:89
-#: templates/statistics/statistics_dashboard.html:98
+#: templates/statistics/statistics_overwiew.html:89
+#: templates/statistics/statistics_overwiew.html:98
 msgid "Export"
 msgstr "Exportieren"
 
-#: templates/statistics/statistics_dashboard.html:92
+#: templates/statistics/statistics_overwiew.html:92
 msgid "Choose format"
 msgstr "Format auswählen"
 
-#: templates/statistics/statistics_dashboard.html:94
+#: templates/statistics/statistics_overwiew.html:94
 msgid "please select"
 msgstr "bitte auswählen"
 
-#: templates/statistics/statistics_dashboard.html:95
+#: templates/statistics/statistics_overwiew.html:95
 msgid "Image/PNG"
 msgstr "Bild/PNG"
 
-#: templates/statistics/statistics_dashboard.html:96
+#: templates/statistics/statistics_overwiew.html:96
 msgid "Table Document/CSV"
 msgstr "Tabellendokument/CSV"
 
@@ -4205,18 +4195,18 @@ msgstr "Passwort wurde erfolgreich geändert"
 msgid "Please enter a correct start and end date"
 msgstr "Bitte fügen sie ein gültiges Start- und Enddatum ein"
 
-#: views/statistics/analytics_view.py:116
+#: views/statistics/analytics_view.py:137
 msgid "Connection to Matomo could not be established"
 msgstr "Es konnte keine Verbindung zum Matomo hergestellt werden"
 
-#: views/statistics/analytics_view.py:123
+#: views/statistics/analytics_view.py:144
 msgid ""
 "The url you have entered is invalid. Please check the corresponding settings."
 msgstr ""
 "Die URL, die Sie eingegeben haben, ist inkorrekt. Bitte prüfen Sie die "
 "Einstellungen."
 
-#: views/statistics/analytics_view.py:131
+#: views/statistics/analytics_view.py:152
 msgid ""
 "There was an error during the establishment of a connection. Please check "
 "the region and the entered key."
@@ -4252,13 +4242,13 @@ msgstr ""
 "Ein Benutzer muss entweder Mitarbeiter/Super-Administrator sein, oder "
 "mindestens einer Region zugewiesen sein."
 
+#~ msgid "thumbnail icon"
+#~ msgstr "Vorschaubild"
+
 #~ msgid "Set icon"
 #~ msgstr "Icon festlegen"
 
 #~ msgid "thumbnail image"
-#~ msgstr "Vorschaubild"
-
-#~ msgid "thumbnail icon"
 #~ msgstr "Vorschaubild"
 
 #~ msgid "Icon"
@@ -4347,6 +4337,15 @@ msgstr ""
 
 #~ msgid "Object"
 #~ msgstr "Objekt"
+
+#~ msgid "activate SSL verification for Matomo"
+#~ msgstr "SSL-Verifikation für Matomo aktivieren"
+
+#~ msgid ""
+#~ "Don't allow invalid SSL-certificates when interacting with Matomo API"
+#~ msgstr ""
+#~ "Erlaube keine ungültigen SSL-Zertifikate bei der Interaktion mit der "
+#~ "Matomo API"
 
 #~ msgid "Insert title here"
 #~ msgstr "Titel hier eingeben"

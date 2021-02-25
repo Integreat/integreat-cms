@@ -122,13 +122,6 @@ class Region(models.Model):
             "The secret Matomo access token of the region is used to authenticate in API requests"
         ),
     )
-    matomo_ssl_verify = models.BooleanField(
-        default=True,
-        verbose_name=_("activate SSL verification for Matomo"),
-        help_text=_(
-            "Don't allow invalid SSL-certificates when interacting with Matomo API"
-        ),
-    )
 
     page_permissions_enabled = models.BooleanField(
         default=False,

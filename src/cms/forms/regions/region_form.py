@@ -49,7 +49,6 @@ class RegionForm(PlaceholderModelForm):
             "statistics_enabled",
             "matomo_url",
             "matomo_token",
-            "matomo_ssl_verify",
             "status",
             "page_permissions_enabled",
             "administrative_division",
