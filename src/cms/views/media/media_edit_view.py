@@ -91,6 +91,7 @@ class MediaEditView(TemplateView):
             document = Document()
             document.region = region
             document.path = directory
+            document.name = request.FILES["upload"].name
             attach_file(document, request.FILES["upload"])
             document.save()
             return redirect(

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 11:07+0000\n"
+"POT-Creation-Date: 2021-02-25 13:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -593,7 +593,7 @@ msgstr "Status"
 msgid "title"
 msgstr "Titel"
 
-#: models/events/event_translation.py:44 models/media/document.py:42
+#: models/events/event_translation.py:44 models/media/document.py:44
 msgid "description"
 msgstr "Beschreibung"
 
@@ -866,23 +866,30 @@ msgstr "Sprach-Knoten"
 msgid "language tree nodes"
 msgstr "Sprach-Knoten"
 
-#: models/media/document.py:46 models/media/document.py:79
+#: models/media/document.py:35 models/offers/offer_template.py:17
+#: models/push_notifications/push_notification_channel.py:10
+#: models/regions/region.py:64 models/users/organization.py:11
+#: models/users/user_mfa.py:17
+msgid "name"
+msgstr "Name"
+
+#: models/media/document.py:48 models/media/document.py:84
 msgid "document"
 msgstr "Dokument"
 
-#: models/media/document.py:47
+#: models/media/document.py:49
 msgid "The actual document file"
 msgstr "Die eigentliche Dokumentendatei"
 
-#: models/media/document.py:51
+#: models/media/document.py:53
 msgid "uploaded date"
 msgstr "Upload-Datum"
 
-#: models/media/document.py:52
+#: models/media/document.py:54
 msgid "The date and time when the document was uploaded"
 msgstr "Das Datum und die Uhrzeit, zu der das Dokument hochgeladen wurde"
 
-#: models/media/document.py:81
+#: models/media/document.py:86
 msgid "documents"
 msgstr "Dokumente"
 
@@ -893,13 +900,6 @@ msgstr "Vorlage"
 #: models/offers/offer.py:108
 msgid "offers"
 msgstr "Angebote"
-
-#: models/offers/offer_template.py:17
-#: models/push_notifications/push_notification_channel.py:10
-#: models/regions/region.py:64 models/users/organization.py:11
-#: models/users/user_mfa.py:17
-msgid "name"
-msgstr "Name"
 
 #: models/offers/offer_template.py:22 models/users/organization.py:16
 msgid "slug"
@@ -2496,6 +2496,11 @@ msgstr "Datei hochladen"
 #: templates/media/media_list.html:30
 msgid "Home"
 msgstr "Home"
+
+#: templates/media/media_list.html:44
+#, python-format
+msgid "%(item_count)s Elements"
+msgstr "%(item_count)s Elemente"
 
 #: templates/offer_templates/offer_template_form.html:13
 #, python-format

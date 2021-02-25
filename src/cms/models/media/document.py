@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from ..regions.region import Region
 from .directory import Directory
 from .file import File
+from ...utils.media_utils import get_thumbnail
 
 
 class Document(models.Model):
@@ -31,6 +32,7 @@ class Document(models.Model):
     file = models.ForeignKey(
         File, related_name="documents", on_delete=models.CASCADE, null=True
     )
+    name = models.CharField(max_length=255, blank=True, verbose_name=_("name"))
     path = models.ForeignKey(
         Directory, related_name="documents", on_delete=models.PROTECT, null=True
     )
@@ -73,6 +75,9 @@ class Document(models.Model):
         :rtype: str
         """
         return os.path.basename(self.file.path)
+
+    def thumbnail_path(self):
+        return get_thumbnail(self.file, 300, 300, True)
 
     class Meta:
         #: The verbose name of the model
