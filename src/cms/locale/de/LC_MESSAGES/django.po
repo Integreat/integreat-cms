@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-04 10:13+0000\n"
+"POT-Creation-Date: 2021-03-04 10:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -4195,18 +4195,18 @@ msgstr "Passwort wurde erfolgreich geändert"
 msgid "Please enter a correct start and end date"
 msgstr "Bitte fügen sie ein gültiges Start- und Enddatum ein"
 
-#: views/statistics/analytics_view.py:137
+#: views/statistics/analytics_view.py:136
 msgid "Connection to Matomo could not be established"
 msgstr "Es konnte keine Verbindung zum Matomo hergestellt werden"
 
-#: views/statistics/analytics_view.py:144
+#: views/statistics/analytics_view.py:143
 msgid ""
 "The url you have entered is invalid. Please check the corresponding settings."
 msgstr ""
 "Die URL, die Sie eingegeben haben, ist inkorrekt. Bitte prüfen Sie die "
 "Einstellungen."
 
-#: views/statistics/analytics_view.py:152
+#: views/statistics/analytics_view.py:151
 msgid ""
 "There was an error during the establishment of a connection. Please check "
 "the region and the entered key."

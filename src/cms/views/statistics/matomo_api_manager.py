@@ -1,11 +1,14 @@
 """
 Helper class to interact with the Matomo API
 """
+import logging
 import re
 import requests
 
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+
+logger = logging.getLogger(__name__)
 
 
 class MatomoApiManager:
@@ -93,9 +96,6 @@ class MatomoApiManager:
         :rtype: list
         """
 
-        domain = self.matomo_url
-        api_key = self.matomo_api_key
-
         url = f"""{domain}/index.php?date={date_string}&expanded=1
         &filter_limit=-1&format=JSON&format_metrics=1
         &idSite={region_id}&method=API.get&module=API&period={period}
@@ -156,7 +156,7 @@ class MatomoApiManager:
         :param auth_key: The authentification key received by a matomo user account.
         :type auth_key: str
 
-
+        return
         """
         domain = self.matomo_url
 
@@ -165,5 +165,6 @@ class MatomoApiManager:
 
         try:
             result = requests.get(url)
-        except requests.exceptions.RequestException as e:  # This is the correct syntax
-            raise ConnectionError(e)
+            logger.log(result)
+        except requests.exceptions.RequestException:
+            return False

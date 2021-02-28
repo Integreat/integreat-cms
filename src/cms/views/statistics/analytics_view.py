@@ -119,7 +119,6 @@ class AnalyticsView(TemplateView):
         api_man = MatomoApiManager(
             matomo_url=region.matomo_url,
             matomo_api_key=region.matomo_token,
-            ssl_verify=True,
         )
         response_dates = []
         response_hits = []
