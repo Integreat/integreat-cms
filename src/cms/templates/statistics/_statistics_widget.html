@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% block javascript_head %}
+<script src="{% static 'chart.js/dist/Chart.js' %}"></script>
+{% endblock %}
+
+<div>
+<p>{% trans "Below you can see the absolute app impressions of the last two weeks." %}</p>
+<canvas id="chart_element" class="chartjs" data-statistics-url="{% url 'retrieve_total_views' region_slug=region.slug %}" data-label-translation="{% trans 'Total hits' %}"></canvas>
+
+</div>
+<script src="{% static 'js/charts/charts-widget-init.js' %}"></script>

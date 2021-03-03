@@ -9,11 +9,26 @@
         <h1 class="font-bold">Dashboard</h1>
         <div class="flex items-start">
             <div class="flex flex-col w-1/2 ">
-                <div class="bg-white p-4 my-3 mr-3 shadow">
-                    <h2 class="font-bold">{% trans 'At a glance' %}</h2>
+                <div class="flex flex-col bg-white px-4 my-3 mr-3 shadow">
+                    <button type="button" class="collapsible font-bold py-4 text-left relative focus:outline-none">
+                        <span class="font-bold">{% trans 'At a glance' %}</span>
+                        <i data-feather="chevron-up" class="up-arrow inline absolute right-0"></i>
+                        <i data-feather="chevron-down" class="down-arrow inline hidden absolute right-0"></i>
+                    </button>
+                    <div class="collapsible-content flex flex-col active">
+                        <p class="py-1"> {% trans 'What do you want to do?' %}</p>
+                        <h3 class="font-bold"> {% trans 'Translation Status' %}</p>
+                        {% include "analytics/_translation_overview_widget.html" %}
+                        <h3 class="font-bold"> {% trans 'Broken Link Checker' %}<h3>
+                        {% include "analytics/_broken_links_widget.html" %}
+                        <h3 class="font-bold"> {% trans 'Website Hits' %}
+                        {% include "statistics/_statistics_widget.html" %}
+                        <h3 class="font-bold"> {% trans "Size of the App" %}</h3>
+                        {% include "analytics/_website_size_widget.html" %}
+                    </div>
                 </div>
                 {% if chat_form %}
-                    {% include "chat/_chat.html" %}
+                {% include "chat/_chat.html" %}
                 {% endif %}
             </div>
             <div class="flex flex-col bg-white w-1/2 px-4 mt-3 ml-3 shadow">
@@ -23,7 +38,7 @@
                     <i data-feather="chevron-down" class="down-arrow inline hidden absolute right-0"></i>
                 </button>
                 <div class="collapsible-content flex flex-col active">
-                    <div class="flex py-4">
+                    <div class="flex py-2">
                         <img src="{% static 'images/favicon.ico' %}"/>
                         <div class="flex flex-col mx-auto">
                             <h3 class="text-gray-700 font-bold">Tür an Tür - Digitalfabrik</h2>
@@ -31,7 +46,7 @@
                         </div>
                     </div>
                     {% for entry in feed.entries %}
-                        <div class="py-4 border-b border-gray-400">
+                        <div class="py-2 border-b border-gray-400">
                             <a href="{{ entry.link }}" class="block py-2 font-bold text-blue-500 hover:text-blue-700">{{ entry.title }}</a>
                             <div class="text-gray-600 py-2">{{ entry.published_parsed|parse_struct_time }}</div>
                             <p class="py-2">{{ entry.summary|striptags|truncatewords:35 }}</p>

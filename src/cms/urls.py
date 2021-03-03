@@ -337,6 +337,23 @@ urlpatterns = [
                     ),
                 ),
                 url(
+                    r"^(?P<region_slug>[-\w]+)/statistics/",
+                    include(
+                        [
+                            url(
+                                r"total_views/?$",
+                                statistics.get_total_views_ajax,
+                                name="retrieve_total_views",
+                            ),
+                            url(
+                                r"create_export_csv/?$",
+                                statistics.prepare_export_csv_ajax,
+                                name="prepare_export_csv",
+                            ),
+                        ]
+                    ),
+                ),
+                url(
                     r"^grant_page_permission$",
                     pages.grant_page_permission_ajax,
                     name="grant_page_permission_ajax",

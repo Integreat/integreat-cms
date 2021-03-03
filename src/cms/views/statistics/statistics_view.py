@@ -20,46 +20,13 @@ from ...models import Region
 @method_decorator(region_permission_required, name="dispatch")
 class AnalyticsView(TemplateView):
     """
-    View for the statistics
+    View for the statistics overview.
     """
 
     #: The template to render (see :class:`~django.views.generic.base.TemplateResponseMixin`)
     template_name = "statistics/statistics_overview.html"
     #: The context dict passed to the template (see :class:`~django.views.generic.base.ContextMixin`)
     base_context = {"current_menu_item": "statistics"}
-
-    @staticmethod
-    def prepare_csv(languages, hits, dates):
-        """
-        Method to create CSV String from the API hits
-
-        :param languages: The list languages which should be evaluated
-        :type languages: list
-
-        :param hits: The list of response hits
-        :type hits: list
-
-        :param dates: The list of response dates
-        :type dates: list
-
-        :return: The raw csv string of the results
-        :rtype: str
-        """
-        csv_row = "date"
-        csv_raw = ""
-        for l_value in languages:
-            csv_row += "," + l_value[1]
-        csv_raw += csv_row + ";"
-        for date_index, _ in enumerate(dates):
-            csv_row = ""
-            csv_row += str(dates[date_index]) + ","
-            for idy in range(0, len(languages)):
-                csv_row += str(hits[idy][2][date_index])
-                if idy < (len(languages) - 1):
-                    csv_row += ","
-            csv_row += ";"
-            csv_raw += str(csv_row)
-        return csv_raw
 
     # pylint: disable=too-many-locals
     def get(self, request, *args, **kwargs):
@@ -122,11 +89,15 @@ class AnalyticsView(TemplateView):
         )
         response_dates = []
         response_hits = []
+
+        # Match active languages with
+
+        matomo_id = api_man.get_matomo_id_by_user()
         for lang in languages:
             try:
                 api_hits = api_man.get_visitors_per_timerange(
                     date_string=start_date + "," + end_date,
-                    region_id="2",
+                    matomo_id=matomo_id,
                     period=request.GET.get("peri", "day"),
                     lang=lang[0],
                 )
@@ -163,8 +134,38 @@ class AnalyticsView(TemplateView):
             self.template_name,
             {
                 **self.base_context,
-                "csv": self.prepare_csv(languages, response_hits, response_dates),
                 "dates": response_dates,
                 "hits": response_hits,
             },
         )
+
+
+@login_required
+def get_total_views_ajax(request):
+    """[summary]
+
+    Args:
+        request ([type]): [description]
+        region_slug ([type]): [description]
+    """
+
+    region = Region.get_current_region(request)
+
+    api_manager = MatomoApiManager(region.matomo_url, region.matomo_api_key)
+    matomo_id = api_manager.get_matomo_id_by_user()
+
+    start_date = str(date.today() - timedelta(days=14))
+    end_date = str(date.today())
+    date_range = start_date + "," + end_date
+
+    total_views = api_manager.get_total_hits(matomo_id, date_range)
+
+    return render(
+        request,
+        "statistics/_statisics_widget.html",
+        {
+            "total_views": total_views,
+            "dates": date_range,
+        },
+        status=201,  # HTTP 201 Created
+    )

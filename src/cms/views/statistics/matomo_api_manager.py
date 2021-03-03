@@ -76,15 +76,15 @@ class MatomoApiManager:
         except ConnectionError:
             return False
 
-    def get_visitors_per_timerange(self, date_string, region_id, period, lang):
+    def get_visitors_per_timerange(self, date_string, matomo_id, period, lang):
         """
         Returns the total unique visitors in a timerange as defined in period
 
         :param date_string: Time range in the format ``"yyyy-mm-dd,yyyy-mm-dd"``
         :type date_string: str
 
-        :param region_id: The matomo website id.
-        :type region_id: int
+        :param matomo_id: The matomo website id.
+        :type matomo_id: int
 
         :param period: The period (e.g. ``"day"``, ``"week"``, ``"month"`` or ``"year"``)
         :type period: str
@@ -95,10 +95,12 @@ class MatomoApiManager:
         :return: List of visitors in the requested time range
         :rtype: list
         """
+        domain = self.matomo_url
+        api_key = self.matomo_api_key
 
         url = f"""{domain}/index.php?date={date_string}&expanded=1
         &filter_limit=-1&format=JSON&format_metrics=1
-        &idSite={region_id}&method=API.get&module=API&period={period}
+        &idSite={matomo_id}&method=API.get&module=API&period={period}
         &segment=pageUrl%253D@%25252F{lang}
         %25252Fwp-json%25252F&auth_token={api_key}"""
 
@@ -149,22 +151,47 @@ class MatomoApiManager:
                     )
         return result
 
-    def get_region_id_by_user(self, auth_key):
+    def get_matomo_id_by_user(self):
         """
-        Returns the matomo website id based on the provided authentification key.
+        Returns the matomo website id based on the provided authentication key.
 
-        :param auth_key: The authentification key received by a matomo user account.
-        :type auth_key: str
-
-        return
+        :return: ID of the connected matomo instance.
+        :rtype: int
         """
         domain = self.matomo_url
+        authentication_key = self.matomo_api_key
 
-        # Define API-Method
-        url = f"""{domain}/index.php?method=SitesManager.getSitesIdWithAdminAccess&module=API&token_auth={auth_key}"""
+        # Define API-Method & Call
+        url = f"""{domain}/index.php?method=SitesManager.getSitesIdWithAdminAccess&module=API&format=JSON&token_auth={authentication_key}"""
 
         try:
-            result = requests.get(url)
-            logger.log(result)
+            result = requests.get(url).json()
+            print(result)
         except requests.exceptions.RequestException:
             return False
+        return result[0]
+
+    def get_total_hits(self, matomo_id, date_string):
+        """
+        Returns the total calls within a time range for all languages.
+
+        :param matomo_id: The id of the matomo instance.
+        :type matomo_id: int
+
+        :param date_string: Time range in the format ``"yyyy-mm-dd,yyyy-mm-dd"``
+        :type date_string: str
+
+        :return: List of total visitors in the requested time range
+        :rtype: list
+        """
+        domain = self.matomo_url
+        authentication_key = self.matomo_api_key
+
+        # Define API-Method & Call
+        url = f"""{domain}/index.php?date={date_string}&format=JSON&idSite={matomo_id}&method=VisitsSummary.getVisits&module=API&period=day&token_auth={authentication_key}"""
+
+        try:
+            result = requests.get(url).json()
+        except requests.exceptions.RequestException:
+            return False
+        return result
