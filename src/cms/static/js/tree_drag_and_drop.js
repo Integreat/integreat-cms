@@ -91,6 +91,8 @@ function drop(event) {
     var target = u(event.target.parentElement).closest('tr');
     var target_id = target.attr("data-drop-id");
     var position = target.attr("data-drop-position");
-    // call view to move a node (current location is the nodes url)
-    window.location.href = window.location.href + node_id + "/move/" + target_id + "/" + position;
+    // abuse confirmation dialog form to perform action
+    let form = document.getElementById("confirmation-dialog").querySelector("form");
+    form.action = window.location.href + node_id + "/move/" + target_id + "/" + position;
+    form.submit();
 }
