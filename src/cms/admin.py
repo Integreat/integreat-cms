@@ -32,6 +32,7 @@ from .models import OfferListFeedback
 from .models import PageFeedback
 from .models import POIFeedback
 from .models import RegionFeedback
+from .models import Role
 from .models import SearchResultFeedback
 from .models import ImprintPage
 from .models import ImprintPageTranslation
@@ -63,6 +64,7 @@ admin.site.register(OfferListFeedback)
 admin.site.register(PageFeedback)
 admin.site.register(POIFeedback)
 admin.site.register(RegionFeedback)
+admin.site.register(Role)
 admin.site.register(SearchResultFeedback)
 admin.site.register(ImprintPage)
 admin.site.register(ImprintPageTranslation)

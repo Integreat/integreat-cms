@@ -8,10 +8,8 @@
     <div class="flex flex-wrap mb-4">
         <div class="w-2/5 flex flex-wrap flex-col justify-center">
             <h2 class="heading font-normal">
-	            {% if form.initial %}
-		            {% with form.name.value as role_name %}
-			            {% blocktrans %}Edit role "{{ role_name }}"{% endblocktrans %}
-		            {% endwith %}
+	            {% if role_form.instance.id %}
+                    {% blocktrans with role_name=role_form.instance.name %}Edit role "{{ role_name }}"{% endblocktrans %}
 	            {% else %}
 		            {% trans 'Create new role' %}
 	            {% endif %}
@@ -23,28 +21,40 @@
     </div>
 
     <div class="flex flex-wrap">
-	    <div class="w-full">
-		    {{form.errors}}
-		    <div class="w-full mb-4 rounded border border-solid border-gray-200 shadow bg-white">
-				<div class="w-full p-4 rounded bg-blue-500">
-					<h3 class="heading font-bold text-white">{% trans "Name of the Role" %}</h3>
-				</div>
-				<div class="w-full p-4">
-                    {% trans "Enter the role's name here" as name_placeholder%}
-                    {% render_field form.name placeholder=name_placeholder class="appearance-none block w-full bg-gray-200 text-xl text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" %}
-				</div>
-			</div>
-		</div>
-	<div class="w-full">
-		<div class="w-full mb-4 rounded border border-solid border-gray-200 shadow bg-white">
-			<div class="w-full p-4 rounded bg-blue-500">
-				<h3 class="heading font-bold text-white">{% trans "Permissions of the role" %}</h3>
-			</div>
-			<div class="w-full p-4">
-				{% render_field form.permissions class="appearance-none block w-full bg-gray-200 text-xl text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" %}
-			</div>
-		</div>
-	</div>
-</div>
+        {{ group_form.errors }}
+        {{ role_form.errors }}
+        <div class="w-full">
+            <div class="w-full mb-4 rounded border border-solid border-gray-200 shadow bg-white">
+                <div class="w-full p-4 rounded bg-blue-500">
+                    <h3 class="heading font-bold text-white">{% trans "Name of the Role" %}</h3>
+                </div>
+                <div class="w-full p-4">
+                    {% render_field group_form.name class="appearance-none block w-full bg-gray-200 text-xl text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" %}
+                </div>
+            </div>
+        </div>
+        <div class="w-full">
+            <div class="w-full mb-4 rounded border border-solid border-gray-200 shadow bg-white">
+                <div class="w-full p-4 rounded bg-blue-500">
+                    <h3 class="heading font-bold text-white">{{ role_form.staff_role.label }}</h3>
+                </div>
+                <div class="w-full p-4">
+                    {% render_field role_form.staff_role %}
+                    <label for="{{ role_form.staff_role.id_for_label }}" class="text-s">{{ role_form.staff_role.label }}</label>
+                    <div class="my-2 text-s text-gray-600">{{ role_form.staff_role.help_text }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full">
+            <div class="w-full mb-4 rounded border border-solid border-gray-200 shadow bg-white">
+                <div class="w-full p-4 rounded bg-blue-500">
+                    <h3 class="heading font-bold text-white">{% trans "Permissions of the role" %}</h3>
+                </div>
+                <div class="w-full p-4">
+                    {% render_field group_form.permissions class="appearance-none block w-full bg-gray-200 text-xl text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" %}
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
 {% endblock %}

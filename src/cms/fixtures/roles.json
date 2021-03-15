@@ -1,5 +1,29 @@
 [
   {
+    "model": "cms.role",
+    "pk": 1,
+    "fields": {
+      "group": 1,
+      "staff_role": false
+    }
+  },
+  {
+    "model": "cms.role",
+    "pk": 2,
+    "fields": {
+      "group": 2,
+      "staff_role": false
+    }
+  },
+  {
+    "model": "cms.role",
+    "pk": 3,
+    "fields": {
+      "group": 3,
+      "staff_role": false
+    }
+  },
+  {
     "model": "auth.group",
     "pk": 1,
     "fields": {

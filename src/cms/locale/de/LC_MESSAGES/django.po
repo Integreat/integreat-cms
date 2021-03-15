@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 11:55+0000\n"
+"POT-Creation-Date: 2021-03-15 18:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Integreat <info@integreat-app.de>\n"
 "Language-Team: Integreat <info@integreat-app.de>\n"
@@ -485,11 +485,11 @@ msgstr "{} hier eingeben"
 msgid "Do no import initial content"
 msgstr "Keine Inhalte übernehmen"
 
-#: forms/users/user_form.py:66
+#: forms/users/user_form.py:68
 msgid "Leave empty to keep unchanged"
 msgstr "Feld leer lassen, um das Passwort nicht zu ändern"
 
-#: forms/users/user_form.py:69
+#: forms/users/user_form.py:71
 #: templates/authentication/password_reset_confirm.html:22
 #: templates/authentication/password_reset_confirm.html:24
 #: templates/settings/mfa/authenticate.html:26
@@ -1443,6 +1443,26 @@ msgstr "Organisation"
 msgid "organizations"
 msgstr "Organisationen"
 
+#: models/users/role.py:16
+msgid "Django auth group"
+msgstr "Django auth Gruppe"
+
+#: models/users/role.py:20
+msgid "staff role"
+msgstr "Mitarbeiterrolle"
+
+#: models/users/role.py:21
+msgid "Whether or not this role is designed for staff members"
+msgstr "Ob diese Rolle für Mitarbeitende gedacht ist oder nicht"
+
+#: models/users/role.py:56
+msgid "role"
+msgstr "Rolle"
+
+#: models/users/role.py:58
+msgid "roles"
+msgstr "Rollen"
+
 #: models/users/user_mfa.py:15 models/users/user_profile.py:24
 msgid "user"
 msgstr "Benutzer"
@@ -2182,7 +2202,7 @@ msgstr "Ende"
 #: templates/organizations/organization_list.html:27
 #: templates/pages/page_tree.html:91 templates/pages/page_tree_archived.html:45
 #: templates/pois/poi_list.html:68 templates/pois/poi_list_archived.html:42
-#: templates/roles/list.html:25
+#: templates/roles/list.html:26
 msgid "Options"
 msgstr "Optionen"
 
@@ -2553,7 +2573,7 @@ msgstr "Sprache hinzufügen"
 #: templates/offer_templates/offer_template_form.html:22
 #: templates/organizations/organization_form.html:21
 #: templates/push_notifications/push_notification_form.html:38
-#: templates/regions/region_form.html:23 templates/roles/role.html:21
+#: templates/regions/region_form.html:23 templates/roles/role.html:19
 #: templates/users/admin/user.html:21 templates/users/region/user.html:24
 msgid "Save"
 msgstr "Speichern"
@@ -3255,28 +3275,32 @@ msgstr "Rollen"
 msgid "Create role"
 msgstr "Rolle erstellen"
 
-#: templates/roles/list.html:34
+#: templates/roles/list.html:25
+msgid "Staff role"
+msgstr "Mitarbeiterrolle"
+
+#: templates/roles/list.html:35
 msgid "No roles available yet."
 msgstr "Noch keine Rollen vorhanden."
 
-#: templates/roles/role.html:13
+#: templates/roles/list_row.html:19
+msgid "Delete role"
+msgstr "Rolle löschen"
+
+#: templates/roles/role.html:12
 #, python-format
 msgid "Edit role \"%(role_name)s\""
 msgstr "Rolle \"%(role_name)s\" bearbeiten"
 
-#: templates/roles/role.html:16
+#: templates/roles/role.html:14
 msgid "Create new role"
 msgstr "Neue Rolle erstellen"
 
-#: templates/roles/role.html:30
+#: templates/roles/role.html:29
 msgid "Name of the Role"
 msgstr "Name der Rolle"
 
-#: templates/roles/role.html:33
-msgid "Enter the role's name here"
-msgstr "Name der Rolle hier eingeben"
-
-#: templates/roles/role.html:41
+#: templates/roles/role.html:51
 msgid "Permissions of the role"
 msgstr "Berechtigungen der Rolle"
 
@@ -4244,15 +4268,15 @@ msgstr "Region wurde erfolgreich gespeichert"
 msgid "Region was created successfully"
 msgstr "Region wurde erfolgreich erstellt"
 
-#: views/roles/role_view.py:72
-msgid "Role was successfully saved"
-msgstr "Rolle wurde erfolgreich gespeichert"
+#: views/roles/role_view.py:87
+msgid "Role \"{}\" was successfully saved"
+msgstr "Rolle \"{}\" wurde erfolgreich gespeichert"
 
-#: views/roles/role_view.py:75
-msgid "Role was successfully created"
-msgstr "Rolle wurde erfolgreich erstellt"
+#: views/roles/role_view.py:91
+msgid "Role \"{}\" was successfully created"
+msgstr "Rolle \"{}\" wurde erfolgreich erstellt"
 
-#: views/roles/role_view.py:81
+#: views/roles/role_view.py:95
 msgid "Errors have occurred"
 msgstr "Es sind Fehler aufgetreten"
 
@@ -4326,6 +4350,12 @@ msgid ""
 msgstr ""
 "Ein Benutzer muss entweder Mitarbeiter/Super-Administrator sein, oder "
 "mindestens einer Region zugewiesen sein."
+
+#~ msgid "group"
+#~ msgstr "Gruppe"
+
+#~ msgid "Enter the role's name here"
+#~ msgstr "Name der Rolle hier eingeben"
 
 #~ msgid "Code"
 #~ msgstr "Code"

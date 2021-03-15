@@ -2,7 +2,6 @@ import logging
 
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Group as Role
 from django.contrib.auth.password_validation import (
     validate_password,
     password_validators_help_texts,
@@ -10,6 +9,7 @@ from django.contrib.auth.password_validation import (
 from django.utils.translation import ugettext_lazy as _
 
 
+from ...models import Role
 from ..placeholder_model_form import PlaceholderModelForm
 
 logger = logging.getLogger(__name__)
@@ -20,7 +20,9 @@ class UserForm(PlaceholderModelForm):
     Form for creating and modifying user objects
     """
 
-    roles = forms.ModelMultipleChoiceField(queryset=Role.objects.all(), required=False)
+    roles = forms.ModelMultipleChoiceField(
+        queryset=Role.objects.filter(staff_role=False), required=False
+    )
     password = forms.CharField(
         widget=forms.PasswordInput,
         validators=[validate_password],
@@ -58,7 +60,7 @@ class UserForm(PlaceholderModelForm):
         # check if user instance already exists
         if self.instance.id:
             # set initial role data
-            self.fields["roles"].initial = self.instance.groups.all()
+            self.fields["roles"].initial = self.instance.profile.roles
             # don't require password if user already exists
             self.fields["password"].required = False
             # adapt placeholder of password input field
@@ -100,13 +102,13 @@ class UserForm(PlaceholderModelForm):
             user.save()
 
         # assign all selected roles which the user does not have already
-        for role in set(self.cleaned_data["roles"]) - set(user.groups.all()):
-            role.user_set.add(user)
-            logger.info("The role %s was assigned to the user %s", role, user)
+        for role in set(self.cleaned_data["roles"]) - set(user.profile.roles):
+            role.group.user_set.add(user)
+            logger.info("%r was assigned to %r", role, user.profile)
 
         # remove all unselected roles which the user had before
-        for role in set(user.groups.all()) - set(self.cleaned_data["roles"]):
-            role.user_set.remove(user)
-            logger.info("The role %s was removed from the user %s", role, user)
+        for role in set(user.profile.roles) - set(self.cleaned_data["roles"]):
+            role.group.user_set.remove(user)
+            logger.info("%r was removed from %r", role, user.profile)
 
         return user

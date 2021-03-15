@@ -1,5 +1,4 @@
-from django.contrib.auth.models import Group as Role
-
+from ...models import Role
 from ..placeholder_model_form import PlaceholderModelForm
 
 
@@ -17,9 +16,4 @@ class RoleForm(PlaceholderModelForm):
         #: The model of this :class:`django.forms.ModelForm`
         model = Role
         #: The fields of the model which should be handled by this form
-        fields = ["name", "permissions"]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # TODO: Derive size from view height (fill complete available space with select field)
-        self.fields["permissions"].widget.attrs["size"] = "20"
+        fields = ["staff_role"]
